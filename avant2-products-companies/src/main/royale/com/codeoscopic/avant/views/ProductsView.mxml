@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+	Copyright (C) 2020, Codeoscopic S.A. - All Rights Reserved
+	Unauthorized copying of this file, via any medium is strictly prohibited
+	Proprietary and confidential
+
+	Copyright (C) 2020, Codeoscopic S.A. - Todos Los Derechos Reservados
+	La copia no autorizada de este archivo, a través de cualquier medio está estrictamente prohibida
+	Privado y confidencial
+
+-->
+<j:Grid xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:j="library://ns.apache.org/royale/jewel"
+    xmlns:js="library://ns.apache.org/royale/basic"
+    xmlns:html="library://ns.apache.org/royale/html">
+
+    <fx:Script>
+        <![CDATA[
+			import com.codeoscopic.avant.events.ProductCompaniesEvent;
+			import com.codeoscopic.avant.models.ProductCompaniesModel;
+
+            [Inject]
+            [Bindable]
+			public var productCompaniesModel:ProductCompaniesModel;
+
+            private function changeView():void
+            {
+                dispatchEvent(new ProductCompaniesEvent(ProductCompaniesEvent.LOAD_COMPANIES));
+            }
+            
+            private function goToGridView():void
+            {
+                dispatchEvent(new ProductCompaniesEvent(ProductCompaniesEvent.GO_TO_GRID_VIEW));
+            }
+        ]]>
+    </fx:Script>
+
+    <j:beads>
+        <js:ContainerDataBinding/>
+    </j:beads>
+
+    <j:GridCell desktopNumerator="1" desktopDenominator="1" tabletNumerator="1" tabletDenominator="1" phoneNumerator="1" phoneDenominator="1">
+        <j:BarRow>
+            <j:BarSection gap="3" itemsVerticalAlign="itemsCenter" width="75%">
+                <html:H1 text="{productCompaniesModel.sortedProducts.length} Productos" className="weight-bold"/>
+                <j:IconButton text="Aseguradoras" unboxed="true" emphasis="primary" className="buttonlink"
+                    click="changeView()">
+                    <j:icon>
+                        <js:FontAwesomeIcon text="{FontAwesome5IconType.CHEVRON_LEFT}"/>
+                    </j:icon>
+                    <j:beads>
+                        <j:ResponsiveLabelVisibility phoneVisible="false"/>
+                    </j:beads>
+                </j:IconButton>
+                <j:IconButton unboxed="true" emphasis="primary" click="goToGridView()" text="Ver Tabla" className="buttonlink">
+                    <j:icon>
+                        <js:FontAwesomeIcon text="{FontAwesome5IconType.TH_LIST}"/>
+                    </j:icon>
+                </j:IconButton>
+            </j:BarSection>
+            <j:BarSection itemsHorizontalAlign="itemsRight" itemsVerticalAlign="itemsCenter" width="25%">
+                <j:IconTextInput rightPosition="true" className="search">
+                    <j:beads>
+                        <j:TextPrompt prompt="Filtrar..."/>
+                        <j:SearchFilterForList list="{productsList}"/>
+                    </j:beads>
+                    <j:icon>
+                        <js:FontAwesomeIcon text="{FontAwesome5IconType.SEARCH}" 
+                                        relativeSize="{FontAwesomeIcon.SIZE_LG}"
+                                        faStyle="{FontAwesomeIcon.LIGHT}"
+                                        className="primary-dark"/>
+                    </j:icon>
+                </j:IconTextInput>
+            </j:BarSection>
+        </j:BarRow> 
+    </j:GridCell>
+
+    <j:GridCell desktopNumerator="1" desktopDenominator="1" tabletNumerator="1" tabletDenominator="1" phoneNumerator="1" phoneDenominator="1">
+        <j:List localId="productsList" width="100%" height="738" labelField="name"
+                className="products-list"
+                dataProvider="{productCompaniesModel.sortedProducts}"/>
+    </j:GridCell>
+    
+</j:Grid>

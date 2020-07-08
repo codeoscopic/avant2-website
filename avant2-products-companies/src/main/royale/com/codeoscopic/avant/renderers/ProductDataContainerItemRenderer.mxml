@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+	Copyright (C) 2020, Codeoscopic S.A. - All Rights Reserved
+	Unauthorized copying of this file, via any medium is strictly prohibited
+	Proprietary and confidential
+
+	Copyright (C) 2020, Codeoscopic S.A. - Todos Los Derechos Reservados
+	La copia no autorizada de este archivo, a través de cualquier medio está estrictamente prohibida
+	Privado y confidencial
+
+-->
+<j:ListItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+    xmlns:j="library://ns.apache.org/royale/jewel" 
+    xmlns:js="library://ns.apache.org/royale/basic" 
+    height="70" width="70" className="product-datacontainer" style="display: flex;">
+
+    <fx:Script>
+        <![CDATA[
+            import com.codeoscopic.avant.vos.Product;
+            
+            [Bindable("dataChange")]
+            public function get product():Product {
+                if(data && data.wip) {
+                    img.style = "filter: grayscale(100%); opacity: 0.5;";
+                }
+                return data as Product;
+            }
+		]]>
+    </fx:Script>
+
+    <j:beads>
+        <js:ItemRendererDataBinding />
+        <j:Paddings padding="0"/>
+    </j:beads>
+    
+    <j:VGroup gap="2" itemsHorizontalAlign="itemsCenter" localId="img">
+        <j:Image width="68" height="68" src="{product.image}">
+            <j:beads>
+                <j:ClipImage shape="{ClipImage.CIRCLE_SHAPE}" radius="46" x="50" y="50" units="%" border="1" borderColor="#808080"/>
+            </j:beads>
+        </j:Image>
+
+        <j:Label text="{product.name}"/>
+    </j:VGroup>
+
+    <js:FontAwesomeIcon text="{FontAwesome5IconType.SPINNER}" visible="{product.wip}"
+            faStyle="{FontAwesomeIcon.SOLID}" relativeSize="{FontAwesomeIcon.SIZE_X2}"
+            spin="true"
+            className="secondary-normal"
+            x="50"/>
+    
+</j:ListItemRenderer>
+

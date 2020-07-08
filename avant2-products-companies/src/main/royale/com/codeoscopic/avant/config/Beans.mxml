@@ -1,0 +1,29 @@
+<!--
+
+	Copyright (C) 2020, Codeoscopic S.A. - All Rights Reserved
+	Unauthorized copying of this file, via any medium is strictly prohibited
+	Proprietary and confidential
+
+	Copyright (C) 2020, Codeoscopic S.A. - Todos Los Derechos Reservados
+	La copia no autorizada de este archivo, a través de cualquier medio está estrictamente prohibida
+	Privado y confidencial
+
+-->
+<crux:BeanProvider
+	xmlns:crux="library://ns.apache.org/royale/crux"
+	xmlns:mx="library://ns.apache.org/royale/mx"
+	xmlns:models="com.codeoscopic.avant.models.*"
+	xmlns:controller="com.codeoscopic.avant.controllers.*"
+	xmlns:services="com.codeoscopic.avant.services.*">
+	
+	<models:ProductCompaniesModel id="productCompaniesModel"/>
+
+	<controller:ProductController/>
+	<services:ProductDelegate id="productDelegate"/>
+	<mx:HTTPService id="productService" url="https://avant2.es/wp-json/wp/v2/product/?per_page=50"/>
+	
+	<controller:CompanyController/>
+	<services:CompanyDelegate id="companyDelegate"/>
+	<mx:HTTPService id="companyService" url="https://avant2.es/wp-json/wp/v2/company/?per_page=50"/>
+
+</crux:BeanProvider>

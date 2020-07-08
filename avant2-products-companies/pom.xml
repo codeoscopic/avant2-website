@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  Copyright (C) 2020, Codeoscopic S.A. - All Rights Reserved
+  Unauthorized copying of this file, via any medium is strictly prohibited
+  Proprietary and confidential
+
+  Copyright (C) 2020, Codeoscopic S.A. - Todos Los Derechos Reservados
+  La copia no autorizada de este archivo, a través de cualquier medio está estrictamente prohibida
+  Privado y confidencial
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.codeoscopic.avant</groupId>
+  <artifactId>avant2-products-companies</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>swf</packaging>
+
+  <name>Avant2: Products and Companies</name>
+
+  <properties>
+    <royale.framework.version>0.9.8-SNAPSHOT</royale.framework.version>
+    <compiler.output-dir-debug>${basedir}/target/javascript/bin/js-debug</compiler.output-dir-debug>
+    <compiler.output-dir-release>${basedir}/target/javascript/bin/js-release</compiler.output-dir-release>
+    <compiler.debug>true</compiler.debug>
+  </properties>
+
+  <build>
+    <sourceDirectory>src/main/royale</sourceDirectory>
+    <pluginManagement>
+      <plugins>
+        <!-- Copy the resources to the compiler output directory -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>copy-resources-debug</id>
+              <phase>validate</phase>
+              <goals>
+                <goal>copy-resources</goal>
+              </goals>
+              <configuration>
+                <outputDirectory>${compiler.output-dir-debug}</outputDirectory>
+                <resources>
+                  <resource>
+                    <directory>src/main/resources</directory>
+                    <filtering>true</filtering>
+                  </resource>
+                </resources>
+              </configuration>
+            </execution>
+            <execution>
+              <id>copy-resources-release</id>
+              <phase>validate</phase>
+              <goals>
+                <goal>copy-resources</goal>
+              </goals>
+              <configuration>
+                <!-- Copy the assets to the assets output directory -->
+                <outputDirectory>${compiler.output-dir-release}/assets</outputDirectory>
+                <resources>
+                  <resource>
+                    <directory>src/main/resources/assets</directory>
+                    <filtering>true</filtering>
+                  </resource>
+                </resources>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-themes</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.codeoscopic.avant</groupId>
+                  <artifactId>royale-html2pdf</artifactId>
+                  <version>1.0-SNAPSHOT</version>
+                  <type>swc</type>
+                  <classifier>js</classifier>
+                  <outputDirectory>${project.build.directory}/javascript/bin/js-release</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+              <includes>js/*</includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.royale.compiler</groupId>
+        <artifactId>royale-maven-plugin</artifactId>
+        <version>${royale.framework.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <mainClass>App.mxml</mainClass>
+          <targets>JSRoyale</targets>
+          <debug>false</debug>
+          <htmlTemplate>${basedir}/src/main/resources/avant2-index-template.html</htmlTemplate>
+          <additionalCompilerOptions>
+            -js-default-initializers=true;
+            -source-map=true;
+            -compiler.exclude-defaults-css-files=MXRoyale-${royale.framework.version}-js.swc:defaults.css;
+            -keep-as3-metadata+=Inject,Dispatcher,EventHandler,PostConstruct,PreDestroy,ViewAdded,ViewRemoved,Bindable,Transient;
+            -keep-code-with-metadata=Inject;
+            -js-dynamic-access-unknown-members=true; <!-- to access JSON object graph subobjects --> 
+          </additionalCompilerOptions>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.royale.compiler</groupId>
+            <artifactId>compiler-jx</artifactId>
+            <version>${royale.framework.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.5.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.2</version>
+      </plugin>
+      <plugin>
+        <groupId>nl.geodienstencentrum.maven</groupId>
+        <artifactId>sass-maven-plugin</artifactId>
+        <version>3.7.2</version>
+        <configuration>
+          <resources>
+            <resource>
+              <source>
+                <directory>${basedir}/src/main/sass</directory>
+                <includes>
+                  <include>**/*.sass</include>
+                </includes>
+              </source>
+              <destination>${basedir}/src/main/resources</destination>
+            </resource>
+          </resources>
+        </configuration>
+        <executions>
+          <execution>
+            <id>generate-css-using-sass</id>
+            <goals>
+                <goal>update-stylesheets</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Check if all source files have the required apache license headers -->
+      <plugin>
+        <groupId>org.apache.rat</groupId>
+        <artifactId>apache-rat-plugin</artifactId>
+        <version>0.13</version>
+        <executions>
+          <execution>
+            <id>license-check</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <licenses>
+            <license implementation="org.apache.rat.analysis.license.SimplePatternBasedLicense">
+              <licenseFamilyCategory>Codeoscopic-Category-License</licenseFamilyCategory>
+              <licenseFamilyName>Codeoscopic-License</licenseFamilyName>
+              <notes />
+              <patterns>
+                <pattern>Copyright (C) 2020, Codeoscopic S.A. - All Rights Reserved</pattern>                
+              </patterns>
+            </license>
+          </licenses>
+          <licenseFamilies>
+            <licenseFamily implementation="org.apache.rat.license.SimpleLicenseFamily">
+              <familyName>Codeoscopic-License</familyName>
+            </licenseFamily>
+          </licenseFamilies>
+          <!-- Make rat log the problematic files in the build output -->
+          <consoleOutput>true</consoleOutput>
+          <excludes>
+            <!-- JSON files can't contain comments -->
+            <exclude>**/*.json</exclude>
+            <!-- This is appended to the LICENSE file for binary packages-->
+            <exclude>LICENSE.bin</exclude>
+            <exclude>**/html2pdf.bundle.min.js</exclude>
+            <!-- READMEs don't have headers -->
+            <exclude>README.md</exclude>
+            <!-- SASS cc.map generated files by sass-maven-plugin-->
+            <exclude>**/*.css.map</exclude>
+            <exclude>**/target/**</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.royale.framework</groupId>
+      <artifactId>Jewel</artifactId>
+      <version>${royale.framework.version}</version>
+      <type>swc</type>
+      <classifier>js</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.royale.framework</groupId>
+      <artifactId>Icons</artifactId>
+      <version>${royale.framework.version}</version>
+      <type>swc</type>
+      <classifier>js</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.royale.framework</groupId>
+      <artifactId>Crux</artifactId>
+      <version>${royale.framework.version}</version>
+      <type>swc</type>
+      <classifier>js</classifier>
+    </dependency>
+    <dependency>
+      <groupId>com.codeoscopic.avant</groupId>
+      <artifactId>royale-html2pdf</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>swc</type>
+      <classifier>js</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.royale.framework</groupId>
+      <artifactId>JewelTheme</artifactId>
+      <version>${royale.framework.version}</version>
+      <type>swc</type>
+      <scope>theme</scope>
+      <classifier>js</classifier>
+    </dependency>
+
+    <!-- Needed for JavaScript compilation -->
+    <dependency>
+      <groupId>org.apache.royale.framework</groupId>
+      <artifactId>HTML</artifactId>
+      <version>${royale.framework.version}</version>
+      <type>swc</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.royale.framework</groupId>
+      <artifactId>Language</artifactId>
+      <version>${royale.framework.version}</version>
+      <type>swc</type>
+      <classifier>js</classifier>
+    </dependency>
+  </dependencies>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <properties>
+        <compiler.debug>false</compiler.debug>
+      </properties>
+    </profile>
+  
+    <profile>
+      <id>option-with-swf</id>
+      <properties>
+        <!-- no point building the swf target  -->
+        <royale.targets>JSRoyale</royale.targets>
+      </properties>
+    </profile>
+  </profiles>
+
+</project>

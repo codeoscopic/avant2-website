@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+	Copyright (C) 2020, Codeoscopic S.A. - All Rights Reserved
+	Unauthorized copying of this file, via any medium is strictly prohibited
+	Proprietary and confidential
+
+	Copyright (C) 2020, Codeoscopic S.A. - Todos Los Derechos Reservados
+	La copia no autorizada de este archivo, a través de cualquier medio está estrictamente prohibida
+	Privado y confidencial
+
+-->
+<j:ListItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+    xmlns:j="library://ns.apache.org/royale/jewel" 
+    xmlns:js="library://ns.apache.org/royale/basic" 
+    maxHeight="{RENDER_NORMAL_HEIGHT}" click="changeHeight()" className="product-renderer">
+
+    <fx:Script>
+        <![CDATA[
+            import com.codeoscopic.avant.vos.Product;
+
+            public static const RENDER_NORMAL_HEIGHT:int = 92;
+            public static const RENDER_MAX_HEIGHT:int = 1600;
+            
+            [Bindable("dataChange")]
+            public function get product():Product {
+                return data as Product;
+            }
+            
+            public function changeHeight():void {
+                maxHeight = maxHeight == RENDER_NORMAL_HEIGHT ? RENDER_MAX_HEIGHT : RENDER_NORMAL_HEIGHT;
+            }
+		]]>
+    </fx:Script>
+
+    <j:beads>
+        <js:ItemRendererDataBinding />
+        <j:VerticalLayout gap="4"/>
+        <j:Paddings padding="12"/>
+    </j:beads>
+
+    <j:HGroup gap="8" itemsVerticalAlign="itemsCenter" width="100%">
+        <j:Image width="68" height="68" src="{product.image}">
+            <j:beads>
+                <j:ClipImage shape="{ClipImage.CIRCLE_SHAPE}" radius="46" x="50" y="50" units="%" border="1" borderColor="#808080"/>
+            </j:beads>
+        </j:Image>
+        
+        <j:VGroup width="100%" minWidth="210" gap="3">
+            <j:Label width="100%" text="{product.name}" className="primary-darkest weight-bold">
+                <j:beads>
+                    <j:SizeControl size="{SizeControl.XLARGE}"/>
+                </j:beads>
+            </j:Label>
+            <j:Label width="100%" text="{product.description}" className="primary-dark weight-light">
+                <j:beads>
+                    <j:SizeControl size="{SizeControl.LARGE}"/>
+                    <j:TruncateText/>
+                </j:beads>
+            </j:Label>
+        </j:VGroup>
+
+        <j:Label text="{product.companies.length + ' compañia' + (product.companies.length == 1 ? '' : 's')}"
+            maxWidth="140" className="companies-number-tag">
+            <j:beads>
+                <j:SizeControl size="{SizeControl.LARGE}"/>
+            </j:beads>
+        </j:Label>
+
+        <js:FontAwesomeIcon text="{FontAwesome5IconType.ELLIPSIS_V}" width="24" 
+            relativeSize="{FontAwesomeIcon.SIZE_X2}" faStyle="{FontAwesomeIcon.LIGHT}">
+            <js:beads>
+                <j:Paddings paddingRight="24"/>
+            </js:beads>
+        </js:FontAwesomeIcon>
+
+    </j:HGroup>
+
+    <j:HGroup width="100%">
+        <j:Spacer width="90"/>
+        <j:DataContainer localId="companies" width="100%" minWidth="365"
+                dataProvider="{product.companies}" labelField="name"
+                itemRenderer="com.codeoscopic.avant.renderers.CompanyDataContainerItemRenderer">
+            <j:beads>
+                <j:TileHorizontalLayout columnWidth="174" rowHeight="84"
+                                    horizontalGap="16" verticalGap="16"/>
+                <js:BrowserResizeListener/>
+            </j:beads>
+        </j:DataContainer>
+    </j:HGroup>
+
+</j:ListItemRenderer>
+

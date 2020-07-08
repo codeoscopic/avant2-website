@@ -1,0 +1,120 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Licensed to the Apache Software Foundation (ASF) under one or more
+//  contributor license agreements.  See the NOTICE file distributed with
+//  this work for additional information regarding copyright ownership.
+//  The ASF licenses this file to You under the Apache License, Version 2.0
+//  (the "License") you may not use this file except in compliance with
+//  the License.  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+@namespace j "library://ns.apache.org/royale/jewel"
+@namespace "http://www.w3.org/1999/xhtml"
+
+.jewel.application
+	background: transparent
+	font-family: "Hind Siliguri", sans-serif
+
+.jewel.loader.primary
+	border-width: 6px
+
+h1
+	font-family: Poppins
+	font-size: 32px
+	line-height: 32px
+	letter-spacing: 0px
+	color: rgb(76, 76, 76)
+
+
+.jewel.textinput.search input
+	background: transparent
+	transition-duration: 0
+
+.jewel.textinput.search input, .jewel.textinput.search input:focus
+	border-radius: 0px
+	border-top: 0px
+	border-left: 0px
+	border-right: 0px
+
+
+.jewel.list
+	background: transparent
+
+.jewel.list, .jewel.list:focus
+	border: 1px solid transparent
+
+
+.jewel.item
+	display: block // fix for Safari not positioning right
+	transition: max-height .5s ease-out
+
+.jewel.item.hovered
+	background: #fafafa !important
+	color: black
+
+.jewel.item.company-datacontainer, .jewel.item.product-datacontainer
+	overflow: visible
+
+
+.products-list
+	IItemRenderer: ClassReference("com.codeoscopic.avant.renderers.ProductListItemRenderer")
+	ISelectableItemRenderer: ClassReference("org.apache.royale.jewel.beads.itemRenderers.ClassSelectorListHoverOnlySelectableItemRendererBead")
+
+.companies-list
+	IItemRenderer: ClassReference("com.codeoscopic.avant.renderers.CompanyListItemRenderer")
+	ISelectableItemRenderer: ClassReference("org.apache.royale.jewel.beads.itemRenderers.ClassSelectorListHoverOnlySelectableItemRendererBead")
+
+.jewel.item.product-renderer
+	border-bottom: 1px solid #ededed
+
+.companies-number-tag
+	background-color: #FF4C0B
+	color: white
+	padding: 6px 10px
+	border-radius: 3px
+	text-align: center
+
+
+.jewel.button.buttonlink
+	text-transform: initial
+
+j|Table
+	IItemRendererClassFactory: ClassReference("org.apache.royale.core.ItemRendererClassFactory")
+	IItemRendererInitializer: ClassReference("com.codeoscopic.avant.renderers.AlternateRowColorTableItemRendererInitializer")
+
+.jewel.table
+	background: white
+	border: 1px solid transparent
+
+.jewel.table .jewel.tableheadercell
+	width: 20px
+	height: 180px
+	background: white
+	border-top: 1px dashed transparent
+
+.jewel.table .jewel.tableheadercell .jewel.label
+	text-align: center
+	white-space: nowrap
+	transform-origin: 50% 50%
+	transform: rotate(-90deg)
+	width: 0px
+	height: 0px
+
+.jewel.table .jewel.tableheadercell .jewel.label:before
+	content: ''
+	padding-top: 100%
+	display: inline-flex
+	vertical-align: middle
+
+.jewel.table .jewel.tablecell
+	border-left: 1px dashed #d9d9d9
+	border-top: 1px dashed #d9d9d9

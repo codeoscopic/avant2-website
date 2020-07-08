@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+	Copyright (C) 2020, Codeoscopic S.A. - All Rights Reserved
+	Unauthorized copying of this file, via any medium is strictly prohibited
+	Proprietary and confidential
+
+	Copyright (C) 2020, Codeoscopic S.A. - Todos Los Derechos Reservados
+	La copia no autorizada de este archivo, a través de cualquier medio está estrictamente prohibida
+	Privado y confidencial
+
+-->
+<j:TableItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+    xmlns:j="library://ns.apache.org/royale/jewel" 
+    xmlns:js="library://ns.apache.org/royale/basic">
+
+    <fx:Script>
+        <![CDATA[
+            import com.codeoscopic.avant.vos.Company;
+
+            import org.apache.royale.utils.Timer;
+
+            [Bindable("dataChange")]
+            public function get company():Company
+            {
+                return data as Company;
+            }
+
+            override public function addedToParent():void
+            {
+                super.addedToParent();
+                img.addEventListener("loadComplete", getBase64Image);
+            }
+
+            private var timer:Timer;
+
+            private function getBase64Image():void {
+                img.removeEventListener("loadComplete", getBase64Image);
+                img.element.setAttribute("crossOrigin","anonymous");
+
+                timer = new Timer(500, 0);
+                timer.addEventListener("timer", performDraw);
+                timer.start();
+            }
+                
+            private function performDraw():void {
+                timer.removeEventListener("timer", performDraw);
+                timer.stop();
+                timer = null;
+
+                // Create an empty canvas element
+                var canvas:HTMLCanvasElement = document.createElement("canvas") as HTMLCanvasElement;
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                // Copy the image contents to the canvas
+                var ctx:Object = canvas.getContext("2d");
+                ctx.drawImage(img.element, 0, 0, img.width, img.height);
+
+                // Get the data-URL formatted image
+                var dataURL:* = canvas.toDataURL("image/png");
+
+                removeElement(img)
+
+                var newImg:Image = new Image();
+                newImg.width = img.width;
+                newImg.height = img.height;
+                newImg.src = dataURL;
+                addElement(newImg);
+            }
+        ]]>
+    </fx:Script>
+
+    <j:beads>
+        <js:ItemRendererDataBinding/>
+        <j:Paddings padding="4"/>
+    </j:beads>
+
+    <j:Image localId="img" width="115" height="46" src="{company.logo}"/>
+
+</j:TableItemRenderer>
+

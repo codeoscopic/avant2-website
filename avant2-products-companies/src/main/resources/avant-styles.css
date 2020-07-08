@@ -1,0 +1,123 @@
+/**
+ * Copyright (C) 2020, Codeoscopic S.A. - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ */
+@namespace j "library://ns.apache.org/royale/jewel";
+@namespace "http://www.w3.org/1999/xhtml";
+.jewel.application {
+  background: transparent;
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+.jewel.loader.primary {
+  border-width: 6px;
+}
+
+h1 {
+  font-family: Poppins;
+  font-size: 32px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  color: #4c4c4c;
+}
+
+.jewel.textinput.search input {
+  background: transparent;
+  transition-duration: 0;
+}
+
+.jewel.textinput.search input, .jewel.textinput.search input:focus {
+  border-radius: 0px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.jewel.list {
+  background: transparent;
+}
+
+.jewel.list, .jewel.list:focus {
+  border: 1px solid transparent;
+}
+
+.jewel.item {
+  display: block;
+  transition: max-height 0.5s ease-out;
+}
+
+.jewel.item.hovered {
+  background: #fafafa !important;
+  color: black;
+}
+
+.jewel.item.company-datacontainer, .jewel.item.product-datacontainer {
+  overflow: visible;
+}
+
+.products-list {
+  IItemRenderer: ClassReference("com.codeoscopic.avant.renderers.ProductListItemRenderer");
+  ISelectableItemRenderer: ClassReference("org.apache.royale.jewel.beads.itemRenderers.ClassSelectorListHoverOnlySelectableItemRendererBead");
+}
+
+.companies-list {
+  IItemRenderer: ClassReference("com.codeoscopic.avant.renderers.CompanyListItemRenderer");
+  ISelectableItemRenderer: ClassReference("org.apache.royale.jewel.beads.itemRenderers.ClassSelectorListHoverOnlySelectableItemRendererBead");
+}
+
+.jewel.item.product-renderer {
+  border-bottom: 1px solid #ededed;
+}
+
+.companies-number-tag {
+  background-color: #FF4C0B;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.jewel.button.buttonlink {
+  text-transform: initial;
+}
+
+j|Table {
+  IItemRendererClassFactory: ClassReference("org.apache.royale.core.ItemRendererClassFactory");
+  IItemRendererInitializer: ClassReference("com.codeoscopic.avant.renderers.AlternateRowColorTableItemRendererInitializer");
+}
+
+.jewel.table {
+  background: white;
+  border: 1px solid transparent;
+}
+
+.jewel.table .jewel.tableheadercell {
+  width: 20px;
+  height: 180px;
+  background: white;
+  border-top: 1px dashed transparent;
+}
+
+.jewel.table .jewel.tableheadercell .jewel.label {
+  text-align: center;
+  white-space: nowrap;
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
+  width: 0px;
+  height: 0px;
+}
+
+.jewel.table .jewel.tableheadercell .jewel.label:before {
+  content: "";
+  padding-top: 100%;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.jewel.table .jewel.tablecell {
+  border-left: 1px dashed #d9d9d9;
+  border-top: 1px dashed #d9d9d9;
+}
+
+/*# sourceMappingURL=avant-styles.css.map */

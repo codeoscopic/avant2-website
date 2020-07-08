@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+	Copyright (C) 2020, Codeoscopic S.A. - All Rights Reserved
+	Unauthorized copying of this file, via any medium is strictly prohibited
+	Proprietary and confidential
+
+	Copyright (C) 2020, Codeoscopic S.A. - Todos Los Derechos Reservados
+	La copia no autorizada de este archivo, a través de cualquier medio está estrictamente prohibida
+	Privado y confidencial
+
+-->
+<j:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:j="library://ns.apache.org/royale/jewel"
+    xmlns:js="library://ns.apache.org/royale/basic"
+    xmlns:html="library://ns.apache.org/royale/html"
+    xmlns:views="com.codeoscopic.avant.views.*">
+
+    <fx:Script>
+        <![CDATA[
+			import com.codeoscopic.avant.models.ProductCompaniesModel;
+
+			import org.apache.royale.core.BrowserWindow;
+
+            [Inject]
+            [Bindable]
+			public var productCompaniesModel:ProductCompaniesModel;
+        ]]>
+    </fx:Script>
+
+    <j:beads>
+        <js:ContainerDataBinding/>
+        <j:VerticalLayout gap="8" itemsHorizontalAlign="itemsRight"/>
+    </j:beads>
+    
+    <j:ApplicationMainContent selectedContent="{productCompaniesModel.selectedContent}">
+        <j:SectionContent name="loader" height="800">
+            <j:beads>
+                <j:VerticalCenteredLayout/>
+            </j:beads>
+            <j:SimpleLoader emphasis="primary" localId="loaderIndicator" width="80" height="80" indeterminate="{productCompaniesModel.selectedContent == 'loader'}"/>
+        </j:SectionContent>
+        <j:SectionContent name="products">
+            <views:ProductsView/>
+        </j:SectionContent>
+        <j:SectionContent name="companies">
+            <views:CompaniesView/>
+        </j:SectionContent>
+        <j:SectionContent name="gridview">
+            <views:GridView/>
+        </j:SectionContent>
+    </j:ApplicationMainContent>
+
+    <j:ImageButton src="assets/powered-by-apache-royale.png" width="200" 
+                click="BrowserWindow.open('http://royale.apache.org');"/>
+</j:View>

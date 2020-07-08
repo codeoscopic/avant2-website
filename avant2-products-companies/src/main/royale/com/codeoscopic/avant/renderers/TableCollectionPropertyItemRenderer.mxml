@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+	Copyright (C) 2020, Codeoscopic S.A. - All Rights Reserved
+	Unauthorized copying of this file, via any medium is strictly prohibited
+	Proprietary and confidential
+
+	Copyright (C) 2020, Codeoscopic S.A. - Todos Los Derechos Reservados
+	La copia no autorizada de este archivo, a través de cualquier medio está estrictamente prohibida
+	Privado y confidencial
+
+-->
+<j:TableItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+    xmlns:j="library://ns.apache.org/royale/jewel" 
+    xmlns:js="library://ns.apache.org/royale/basic">
+
+    <fx:Script>
+        <![CDATA[
+            import com.codeoscopic.avant.vos.Company;
+            import com.codeoscopic.avant.vos.Product;
+
+            public var wipExist:Boolean = false;
+
+            [Bindable("dataChange")]
+            public function get hasProduct():Boolean
+            {
+                if(!(data as Company).products)
+                    return false;
+
+                var array:Array = (data as Company).products.source;
+                var len:int = array.length;
+                for(var index:int = 0; index < len; index++)
+                {
+                    var product:Product = array[index];
+
+                    if(!wipExist && product.wip)
+                    {
+                        wipExist = true;
+                        icon.removeClass("emphasized-normal");
+                        icon.addClass("secondary-normal");
+                        icon.text = FontAwesome5IconType.SPINNER;
+                    }
+
+                    if(product.name == labelField)
+                        return true;
+                }
+                
+                return false;
+            }
+        ]]>
+    </fx:Script>
+
+    <j:beads>
+        <js:ItemRendererDataBinding/>
+        <j:VerticalCenteredLayout/>
+    </j:beads>
+
+    <js:FontAwesomeIcon localId="icon" className="emphasized-normal"
+                        text="{FontAwesome5IconType.CHECK_CIRCLE}" 
+                        faStyle="{FontAwesomeIcon.SOLID}" 
+                        relativeSize="{FontAwesomeIcon.SIZE_X2}"
+                        visible="{hasProduct}"/>
+
+</j:TableItemRenderer>
+
