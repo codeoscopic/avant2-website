@@ -13,8 +13,10 @@ package com.codeoscopic.avant.controllers
 {
 	import com.codeoscopic.avant.models.ProductCompaniesModel;
 	import com.codeoscopic.avant.renderers.TableImageLogoItemRenderer;
+	import com.codeoscopic.avant.services.ComplementaryDelegate;
 	import com.codeoscopic.avant.services.ProductDelegate;
 	import com.codeoscopic.avant.vos.Company;
+	import com.codeoscopic.avant.vos.Complementary;
 	import com.codeoscopic.avant.vos.Product;
 
 	import mx.rpc.events.ResultEvent;
@@ -49,6 +51,9 @@ package com.codeoscopic.avant.controllers
 
 		[Inject]
 		public var productDelegate:ProductDelegate;
+		
+		[Inject]
+		public var complementaryDelegate:ComplementaryDelegate;
 
 		/**
 		 *  [PostConstruct] methods are invoked after all dependencies are injected.
@@ -58,6 +63,7 @@ package com.codeoscopic.avant.controllers
 		[PostConstruct]
 		public function setUp():void {
 			loadProducts();
+			loadComplementaries();
         }
 
 		/**
@@ -137,6 +143,54 @@ package com.codeoscopic.avant.controllers
 				model.sortedProducts = alv;
 
 				model.selectedContent = "products";//ProductCompaniesModel.PRODUCTS_VIEW;
+			}
+		}
+
+		/**
+		 * load all complementary products from the server
+		 */
+		[EventHandler(event="ProductCompaniesEvent.LOAD_COMPLEMENTARIES")]
+		public function loadComplementaries():void
+		{
+			if(model.complementaries == null){
+				model.selectedContent = "loader";//ProductCompaniesModel.LOADER_VIEW;
+				serviceHelper.executeServiceCall(complementaryDelegate.loadComplementaries(), loadComplementariesResultHandler);
+			} else {
+				model.selectedContent = "products";//ProductCompaniesModel.PRODUCTS_VIEW;
+			}
+		}
+
+		/**
+		 * load complementary products call back. We get results from server and generate
+		 * front end data structures.
+		 */
+		private function loadComplementariesResultHandler(event:ResultEvent):void {
+			if(model.products == null){
+				var data:Object = JSON.parse(event.result as String);
+
+				var sort:Sort = new Sort();
+				sort.fields = [new SortField("name", true, false)];
+
+				model.complementaries = new ArrayList();
+				var complementary:Complementary;
+
+				for (var i:int = 0; i < data.length; i++) {
+					complementary = new Complementary();
+					complementary.id = data[i].id;
+					complementary.name = data[i].complementaryname;
+					complementary.description = data[i].complementarydescription;
+					complementary.image = data[i].complementaryimage.guid;
+
+					model.complementaries.addItem(complementary);
+				}
+
+				var alv:ArrayListView = new ArrayListView(model.complementaries);
+				alv.sort = sort;
+				alv.refresh();
+
+				model.sortedComplementaries = alv;
+
+				// model.selectedContent = "products";//ProductCompaniesModel.PRODUCTS_VIEW;
 			}
 		}
 

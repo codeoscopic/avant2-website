@@ -22,6 +22,7 @@ package com.codeoscopic.avant.events
 		 * Actions
 		 */
 		public static const LOAD_PRODUCTS:String = "load_products";
+		public static const LOAD_COMPLEMENTARIES:String = "load_complementaries";
 		public static const LOAD_COMPANIES:String = "load_companies";
 		public static const GO_TO_GRID_VIEW:String = "go_to_grid_view";
 		

@@ -74,12 +74,28 @@
                 </j:IconTextInput>
             </j:BarSection>
         </j:BarRow> 
-    </j:GridCell>
-
-    <j:GridCell desktopNumerator="1" desktopDenominator="1" tabletNumerator="1" tabletDenominator="1" phoneNumerator="1" phoneDenominator="1">
+    
         <j:List localId="productsList" width="100%" height="738" labelField="name"
                 className="products-list"
                 dataProvider="{productCompaniesModel.sortedProducts}"/>
+    </j:GridCell>
+
+    <j:GridCell desktopNumerator="1" desktopDenominator="1" tabletNumerator="1" tabletDenominator="1" phoneNumerator="1" phoneDenominator="1">
+        <j:BarRow>
+            <j:BarSection gap="3" itemsVerticalAlign="itemsCenter" width="75%">
+                <html:H1 text="{productCompaniesModel.sortedComplementaries.length} Productos Complementarios" className="weight-bold"/>
+            </j:BarSection>
+        </j:BarRow>
+    
+        <j:List localId="complementariesList" width="100%" labelField="name"
+                className="complementaries-list"
+                dataProvider="{productCompaniesModel.sortedComplementaries}">
+            <j:beads>
+                <j:TileHorizontalLayout columnWidth="190" rowHeight="120"
+                                    horizontalGap="16" verticalGap="16"/>
+                <js:BrowserResizeListener/>
+            </j:beads>
+        </j:List>
     </j:GridCell>
     
 </j:Grid>

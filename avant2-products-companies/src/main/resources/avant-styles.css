@@ -10,6 +10,10 @@
   font-family: "Hind Siliguri", sans-serif;
 }
 
+.jewel.cell {
+  padding-bottom: 30px;
+}
+
 .jewel.loader.primary {
   border-width: 6px;
 }
@@ -58,6 +62,11 @@ h1 {
 
 .products-list {
   IItemRenderer: ClassReference("com.codeoscopic.avant.renderers.ProductListItemRenderer");
+  ISelectableItemRenderer: ClassReference("org.apache.royale.jewel.beads.itemRenderers.ClassSelectorListHoverOnlySelectableItemRendererBead");
+}
+
+.complementaries-list {
+  IItemRenderer: ClassReference("com.codeoscopic.avant.renderers.ComplementaryListItemRenderer");
   ISelectableItemRenderer: ClassReference("org.apache.royale.jewel.beads.itemRenderers.ClassSelectorListHoverOnlySelectableItemRendererBead");
 }
 

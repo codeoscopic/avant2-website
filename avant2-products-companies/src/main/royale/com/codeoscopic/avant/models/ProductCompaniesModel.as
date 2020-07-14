@@ -29,6 +29,9 @@ package com.codeoscopic.avant.models
         public var products:ArrayList;
         public var sortedProducts:ArrayListView;
         
+        public var complementaries:ArrayList;
+        public var sortedComplementaries:ArrayListView;
+        
         public var companies:ArrayList;
         public var sortedCompanies:ArrayListView;
         

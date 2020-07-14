@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+	Copyright (C) 2020, Codeoscopic S.A. - All Rights Reserved
+	Unauthorized copying of this file, via any medium is strictly prohibited
+	Proprietary and confidential
+
+	Copyright (C) 2020, Codeoscopic S.A. - Todos Los Derechos Reservados
+	La copia no autorizada de este archivo, a través de cualquier medio está estrictamente prohibida
+	Privado y confidencial
+
+-->
+<j:ListItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+    xmlns:j="library://ns.apache.org/royale/jewel" 
+    xmlns:js="library://ns.apache.org/royale/basic" 
+    className="complementary-renderer">
+
+    <fx:Script>
+        <![CDATA[
+            import com.codeoscopic.avant.vos.Complementary;
+
+            [Bindable("dataChange")]
+            public function get complementary():Complementary {
+                return data as Complementary;
+            }
+		]]>
+    </fx:Script>
+
+    <j:beads>
+        <js:ItemRendererDataBinding />
+        <j:Paddings padding="12"/>
+    </j:beads>
+    
+    <j:VGroup gap="4" itemsHorizontalAlign="itemsCenter">
+        <j:Image width="150" height="60" src="{complementary.image}"/>
+        
+        <j:Label text="{complementary.name}" className="primary-darkest weight-bold">
+            <j:beads>
+                <j:SizeControl size="{SizeControl.LARGE}"/>
+            </j:beads>
+        </j:Label>
+    </j:VGroup>
+
+</j:ListItemRenderer>
+
