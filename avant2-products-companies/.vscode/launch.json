@@ -1,12 +1,40 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
         {
-            "name": "Launch Chrome (Debug version)",
             "type": "chrome",
             "request": "launch",
-            "file": "${workspaceRoot}/target/javascript/bin/js-debug/index.html",
+            "name": "Brave - Debug version",
+            "runtimeExecutable": "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
+            "userDataDir": true,
+            // "url": "http://localhost:8080",
+            // "webRoot": "${workspaceFolder}"
+            // "file": "${workspaceRoot}/target/javascript/bin/js-debug/index.html",
+            //"preLaunchTask": "mvn",
+            "url": "file:///${workspaceRoot}/target/javascript/bin/js-debug/index.html",
+            "webRoot": "${workspaceRoot}/target/javascript/bin/js-debug",
+            "sourceMaps": true
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Brave - Release version",
+            "runtimeExecutable": "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
+            "userDataDir": true,
+            // "url": "http://localhost:8080",
+            // "webRoot": "${workspaceFolder}"
+            "url": "file:///${workspaceRoot}/target/javascript/bin/js-release/index.html",
+            "webRoot": "${workspaceRoot}/target/javascript/bin/js-release",
+            //"preLaunchTask": "mvn",
+            "sourceMaps": true
+        }
+        ,
+        {
+            "name": "Launch Chrome (Debug version)",
+            "type": "extensionHost",
+            "request": "launch",
+            "url": "file:///${workspaceRoot}/target/javascript/bin/js-debug/index.html",
+            "webRoot": "${workspaceRoot}/target/javascript/bin/js-debug",
             //"preLaunchTask": "mvn",
             "sourceMaps": true
         },
@@ -14,7 +42,8 @@
             "name": "Launch Chrome (Release version)",
             "type": "chrome",
             "request": "launch",
-            "file": "${workspaceRoot}/target/javascript/bin/js-release/index.html",
+            "url": "file:///${workspaceRoot}/target/javascript/bin/js-release/index.html",
+            "webRoot": "${workspaceRoot}/target/javascript/bin/js-release",
             //"preLaunchTask": "mvn",
             "sourceMaps": true
         },
@@ -22,7 +51,8 @@
             "name": "Launch Firefox (Debug version)",
             "type": "firefox",
             "request": "launch",
-            "file": "${workspaceRoot}/target/js-debug/index.html",
+            "url": "file:///${workspaceRoot}/target/javascript/bin/js-debug/index.html",
+            "webRoot": "${workspaceRoot}/target/javascript/bin/js-debug",
             //"preLaunchTask": "mvn",
             "sourceMaps": true
         },
@@ -30,7 +60,8 @@
             "name": "Launch Firefox (Release version)",
             "type": "firefox",
             "request": "launch",
-            "file": "${workspaceRoot}/target/javascript/bin/js-debug/index.html",
+            "url": "file:///${workspaceRoot}/target/javascript/bin/js-release/index.html",
+            "webRoot": "${workspaceRoot}/target/javascript/bin/js-release",
             //"preLaunchTask": "mvn",
             "sourceMaps": true
         }
