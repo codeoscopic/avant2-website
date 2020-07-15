@@ -19,6 +19,6 @@
 -->
 <componentPackage>
 
-    <component id="html2pdf" class="html2pdf"/>
+    <!-- <component id="html2pdf" class="html2pdf"/> -->
 
 </componentPackage>

@@ -87,12 +87,14 @@
         <version>${royale.framework.version}</version>
         <extensions>true</extensions>
         <configuration>
+          <targets>JSRoyale</targets>
+          <debug>false</debug>
           <namespaces>
             <!-- Make the classes listed in the manifest be available under the given namespace -->
-            <!-- <namespace>
+            <namespace>
               <uri>library://ns.apache.org/royale/html2pdf</uri>
               <manifest>${project.basedir}/src/main/resources/html2pdf-manifest.xml</manifest>
-            </namespace> -->
+            </namespace>
           </namespaces>
           <!-- Tell the compiler which classes to compile and include -->
           <includeClasses>
@@ -138,5 +140,15 @@
 
     <!-- Add dependencies you might be needing here -->
   </dependencies>
+
+  <profiles>
+    <profile>
+      <id>option-with-swf</id>
+      <properties>
+        <!-- no point building the swf target  -->
+        <royale.targets>JSRoyale</royale.targets>
+      </properties>
+    </profile>
+  </profiles>
 
 </project>

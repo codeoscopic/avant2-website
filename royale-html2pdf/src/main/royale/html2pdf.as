@@ -28,6 +28,5 @@ package
 	COMPILE::JS
 	public function html2pdf(element:Element = null):Worker {
 		return null;		
-	}
-	
+	}	
 }
