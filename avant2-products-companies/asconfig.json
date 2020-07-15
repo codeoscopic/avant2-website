@@ -17,6 +17,20 @@
         "source-map": true
     },
     "additionalOptions": "-remove-circulars -js-output-optimization=skipAsCoercions",
+    "source-path": [
+        "src/main/royale",
+        "../royale-html2pdf/src/main/royale"
+    ],
+    "namespace": [
+        {
+            "uri": "library://ns.apache.org/royale/html2pdf",
+            "manifest": "../royale-html2pdf/src/main/resources/html2pdf-manifest.xml"
+        }
+    ],
+    "js-library-path": [
+        // "${royalelib}/js/libs/MXRoyaleJS.swc"
+        "../royale-html2pdf/target/royale-html2pdf-1.0-SNAPSHOT-js.swc"
+    ],
     "files":
     [
         "src/main/royale/App.mxml"
