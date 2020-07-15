@@ -84,7 +84,7 @@ package com.codeoscopic.avant.controllers
 				company.id = data[i].id;
 				company.name = data[i].companyname;
 				// company.description = data[i].companydescription;
-				company.logo = data[i].companylogo.guid.replace("avant2.es", "www.avant2.es");
+				company.logo = data[i].companylogo.guid;
 				
 				// add products
 				products = data[i].products;

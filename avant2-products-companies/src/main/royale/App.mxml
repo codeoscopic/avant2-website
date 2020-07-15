@@ -30,7 +30,8 @@
                     eventPackages="com.codeoscopic.avant.events.*"
                     viewPackages="com.codeoscopic.avant.views.*"/>
             </crux:config>
-        </crux:Crux>    
+        </crux:Crux> 
+        <js:BrowserResizeApplicationListener minWidth="200" minHeight="200"/>   
 	</j:beads>
     
     <j:valuesImpl>

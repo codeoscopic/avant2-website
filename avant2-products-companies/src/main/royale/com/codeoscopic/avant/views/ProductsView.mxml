@@ -75,7 +75,7 @@
             </j:BarSection>
         </j:BarRow> 
     
-        <j:List localId="productsList" width="100%" height="738" labelField="name"
+        <j:List localId="productsList" width="100%" labelField="name"
                 className="products-list"
                 dataProvider="{productCompaniesModel.sortedProducts}"/>
     </j:GridCell>

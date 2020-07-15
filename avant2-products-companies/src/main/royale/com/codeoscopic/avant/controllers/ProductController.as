@@ -169,7 +169,7 @@ package com.codeoscopic.avant.controllers
 				var data:Object = JSON.parse(event.result as String);
 
 				var sort:Sort = new Sort();
-				sort.fields = [new SortField("name", true, false)];
+				sort.fields = [new SortField("description", true, false)];
 
 				model.complementaries = new ArrayList();
 				var complementary:Complementary;
