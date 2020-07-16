@@ -108,6 +108,7 @@
           </includeFiles>
           <skipExtern>false</skipExtern>
           <allowSubclassOverrides>true</allowSubclassOverrides>
+          <additionalCompilerOptions>-source-map=true</additionalCompilerOptions>
         </configuration>
         <dependencies>
           <dependency>

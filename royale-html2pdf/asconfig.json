@@ -1,0 +1,36 @@
+/*
+ * Copyright (C) 2009, Codeoscopic S.A. - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ *
+ * Copyright (C) 2009, Codeoscopic S.A. - Todos Los Derechos Reservados
+ * La copia no autorizada de este archivo, a través de cualquier medio está estrictamente prohibida
+ * Privado y confidencial
+ */
+ {
+    "config": "royale",
+    "type": "lib",
+    "compilerOptions": {
+        "debug": true,
+        "targets": [
+            "JSRoyale"
+        ],
+        "source-path": [
+            "src/main/royale"
+        ],
+        "include-classes": [
+            "HTML2PDFClasses"
+        ],
+        "include-sources": [
+            "src/main/royale"
+        ],
+        // "library-path": [
+        //     "${royalelib}/js/libs/MXRoyaleJS.swc"
+        // ],
+        // "js-library-path": [
+        //     "${royalelib}/js/libs/MXRoyaleJS.swc"
+        // ],
+        "source-map": true,
+        "output": "target/HTML2PDFClasses.swc"
+    }
+}
