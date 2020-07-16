@@ -38,7 +38,7 @@
                         wipExist = true;
                         icon.removeClass("emphasized-normal");
                         icon.addClass("secondary-normal");
-                        icon.text = FontAwesome5IconType.SPINNER;
+                        icon.text = FontAwesome5IconType.COG;
                     }
 
                     if(product.name == labelField)

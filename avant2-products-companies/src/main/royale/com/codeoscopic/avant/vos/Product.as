@@ -22,5 +22,6 @@ package com.codeoscopic.avant.vos
         public var image:String;
         public var companies:ArrayListView;
         public var wip:Boolean;
+        public var order:int;
     }
 }

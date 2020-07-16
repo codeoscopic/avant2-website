@@ -88,10 +88,8 @@ package com.codeoscopic.avant.controllers
 			if(model.products == null){
 				var data:Object = JSON.parse(event.result as String);
 
-				createGridColumns(data);
-
 				var sort:Sort = new Sort();
-				sort.fields = [new SortField("name", true, false)];
+				sort.fields = [new SortField("order", false, false, true)];
 				
 				model.products = new ArrayList();
 				var product:Product;
@@ -107,6 +105,7 @@ package com.codeoscopic.avant.controllers
 					product.name = data[i].productname;
 					product.description = data[i].productdescription;
 					product.image = data[i].productimage.guid;
+					product.order = data[i].productorder;
 
 					// add companies	
 					companies = data[i].companies;
@@ -141,6 +140,8 @@ package com.codeoscopic.avant.controllers
 				alv.refresh();
 
 				model.sortedProducts = alv;
+
+				createGridColumns();
 
 				model.selectedContent = "products";//ProductCompaniesModel.PRODUCTS_VIEW;
 			}
@@ -197,44 +198,33 @@ package com.codeoscopic.avant.controllers
 		/**
 		 * Generate the grid columns depending on the products we retrieve from the server
 		 */
-		private function createGridColumns(data:Object):void
+		private function createGridColumns():void
 		{
 			model.gridColumns = new Array();
 
 			var column:TableColumn;
+			var product:Product;
 
-			for (var i:int = 0; i < data.length; i++) {
+			for (var i:int = 0; i < model.sortedProducts.length; i++) {
+				product = model.sortedProducts.getItemAt(i) as Product;
+
 				// don't add this product if we don't have any company in it
-				if(!data[i].companies)
+				if(!product.companies)
 						continue;
 				column = new TableColumn();
-				column.dataField = data[i].productname;
-				column.label = data[i].productname;
+				column.dataField = product.name;
+				column.label = product.name + " (" + product.companies.length + ")";
 				column.align = "center"
 				model.gridColumns.push(column);
 			}
-
-			model.gridColumns = model.gridColumns.sort(sortAlphabetic);
 			
 			column = new TableColumn();
 			column.dataField = "name";
-			column.label = "Compañía";
+			column.label = "Compañías";
 			column.align = "center"
 			column.itemRenderer = new ClassFactory(TableImageLogoItemRenderer);
 
 			model.gridColumns.unshift(column);
-		}
-
-		/**
-		 * to sort the array of columns in alphabetic order
-		 */
-		private function sortAlphabetic(a:Object, b:Object):int
-		{
-			if(a.label < b.label) 
-				return -1;
-			if(a.label > b.label)
-				return 1;
-			return 0;
 		}
 	}
 }
