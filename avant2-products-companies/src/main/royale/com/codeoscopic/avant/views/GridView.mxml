@@ -19,7 +19,9 @@
         <![CDATA[
 			import com.codeoscopic.avant.events.ProductCompaniesEvent;
 			import com.codeoscopic.avant.models.ProductCompaniesModel;
-            
+
+			import org.apache.royale.core.IUIBase;
+
             [Inject]
             [Bindable]
 			public var productCompaniesModel:ProductCompaniesModel;
@@ -29,14 +31,16 @@
                 dispatchEvent(new ProductCompaniesEvent(ProductCompaniesEvent.LOAD_PRODUCTS));
             }
 
-            private var scrollTop:Number;
-
-            private function printTable():void
+            /**
+             * This triggers the printing with html2pdf royale library
+             */
+            private function printTable(container:IUIBase):void
             {
                 COMPILE::JS
                 {
-                scrollTop = gridview.positioner.scrollTop;
-                gridview.positioner.scrollTop = 0;
+                printablePositioner = container.positioner;
+                scrollTop = printablePositioner.scrollTop;
+                printablePositioner.scrollTop = 0;
                 var opt:Object = {
                     margin:       10,
                     // pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
@@ -45,13 +49,25 @@
                     html2canvas:  { scale: 1, useCORS: true},
                     jsPDF:        { unit: 'mm', format: 'a2', orientation: 'p' }
                 }; 
-                html2pdf().set(opt).from(gridview.element).outputPdf().then(restoreScroll).save();
+                html2pdf().set(opt).from(container.element).outputPdf().then(restoreScroll).save();
                 }
             }
+            
+            /**
+             * the container to print
+             */
+            COMPILE::JS
+            private var printablePositioner:HTMLElement
+            
+            /**
+             * the scroll to store and restore when printing.
+             * For printing we need to reset scroll, so we store and restore when finish
+             */
+            private var scrollTop:Number;
 
             private function restoreScroll(pdf:*):void
             {
-                gridview.positioner.scrollTop = scrollTop;
+                printablePositioner.scrollTop = scrollTop;
             }
         ]]>
     </fx:Script>
@@ -76,7 +92,7 @@
             </j:BarSection>
             <j:BarSection itemsHorizontalAlign="itemsRight" itemsVerticalAlign="itemsCenter" width="25%">
                 <j:IconButton text="Descargar Tabla" unboxed="true" emphasis="primary" className="buttonlink"
-                    click="printTable()">
+                    click="printTable(gridcell)">
                     <j:icon>
                         <js:FontAwesomeIcon text="{FontAwesome5IconType.FILE_PDF}" faStyle="{FontAwesomeIcon.LIGHT}"/>
                     </j:icon>
@@ -88,10 +104,34 @@
         </j:BarRow> 
     </j:GridCell>
     
-    <j:GridCell desktopNumerator="1" desktopDenominator="1" tabletNumerator="1" tabletDenominator="1" phoneNumerator="1" phoneDenominator="1">
-        <j:Table id="gridview" width="100%" fixedHeader="true"
+    <!-- All this cell will be printed-->
+    <j:GridCell id="gridcell" desktopNumerator="1" desktopDenominator="1" tabletNumerator="1" tabletDenominator="1" phoneNumerator="1" phoneDenominator="1">
+        <j:Table width="100%" fixedHeader="true"
             columns="{productCompaniesModel.gridColumns}"
             itemRenderer="com.codeoscopic.avant.renderers.TableCollectionPropertyItemRenderer"
             dataProvider="{productCompaniesModel.sortedCompanies}"/>
+        
+        <j:Spacer height="30"/>
+
+        <j:HGroup width="475" gap="3" itemsVerticalAlign="itemsCenter" className="table-legend">
+            <j:beads>
+                <j:Paddings padding="20"/>
+            </j:beads>
+            
+            <html:H3 text="Leyenda" width="100" className="primary-normal"/>
+            
+            <js:FontAwesomeIcon className="emphasized-normal"
+                        text="{FontAwesome5IconType.CHECK_CIRCLE}" 
+                        faStyle="{FontAwesomeIcon.SOLID}" 
+                        relativeSize="{FontAwesomeIcon.SIZE_LG}"/>
+            <j:Label text="Producto Disponible" className="weight-bold"/>
+            
+            <js:FontAwesomeIcon className="secondary-normal"
+                        text="{FontAwesome5IconType.COG}" 
+                        faStyle="{FontAwesomeIcon.SOLID}" 
+                        relativeSize="{FontAwesomeIcon.SIZE_LG}"/>
+            <j:Label text="Producto En Progreso" className="weight-bold"/>
+            
+        </j:HGroup>   
     </j:GridCell>
 </j:Grid>

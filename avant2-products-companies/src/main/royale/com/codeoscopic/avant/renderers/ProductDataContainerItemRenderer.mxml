@@ -44,7 +44,7 @@
         <j:Label text="{product.name}"/>
     </j:VGroup>
 
-    <js:FontAwesomeIcon text="{FontAwesome5IconType.SPINNER}" visible="{product.wip}"
+    <js:FontAwesomeIcon text="{FontAwesome5IconType.COG}" visible="{product.wip}"
             faStyle="{FontAwesomeIcon.SOLID}" relativeSize="{FontAwesomeIcon.SIZE_X2}"
             spin="true"
             className="secondary-normal"

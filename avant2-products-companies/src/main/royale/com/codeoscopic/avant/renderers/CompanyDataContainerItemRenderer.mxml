@@ -40,7 +40,7 @@
         </j:beads>
     </j:Image>
 
-    <js:FontAwesomeIcon text="{FontAwesome5IconType.SPINNER}" visible="{company.wip}"
+    <js:FontAwesomeIcon text="{FontAwesome5IconType.COG}" visible="{company.wip}"
             faStyle="{FontAwesomeIcon.SOLID}" relativeSize="{FontAwesomeIcon.SIZE_X2}"
             spin="true"
             className="secondary-normal"
