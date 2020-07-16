@@ -30,8 +30,7 @@
                     eventPackages="com.codeoscopic.avant.events.*"
                     viewPackages="com.codeoscopic.avant.views.*"/>
             </crux:config>
-        </crux:Crux> 
-        <js:BrowserResizeApplicationListener minWidth="200" minHeight="200"/>   
+        </crux:Crux>
 	</j:beads>
     
     <j:valuesImpl>
@@ -39,7 +38,24 @@
     </j:valuesImpl>
 
     <j:initialView>
-        <views:ProductCompaniesView/>
+        <views:ProductCompaniesView initComplete="addAttribute(event)"/>
     </j:initialView>
+
+    <fx:Script>
+        <![CDATA[
+            import org.apache.royale.events.Event;
+
+            /**
+             * This is needed for integration in the host page iframe, so all the widget adapt its height
+             * dinamically. There we use iFrameResizer and configure it with 
+             * heightCalculationMethod : 'taggedElement'
+             * In Royale application the taggedElement is our Jewel View that hods the other subviews
+             */
+            public function addAttribute(event:Event):void
+            {
+                event.target.element.setAttribute('data-iframe-height', 'iFrameResizer');
+            }
+        ]]>
+    </fx:Script>
      
 </j:Application>
