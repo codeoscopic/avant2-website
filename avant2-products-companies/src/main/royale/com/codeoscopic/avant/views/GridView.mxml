@@ -109,7 +109,11 @@
         <j:Table width="100%" fixedHeader="true"
             columns="{productCompaniesModel.gridColumns}"
             itemRenderer="com.codeoscopic.avant.renderers.TableCollectionPropertyItemRenderer"
-            dataProvider="{productCompaniesModel.sortedCompanies}"/>
+            dataProvider="{productCompaniesModel.sortedCompanies}">
+            <j:beads>
+                <j:TableAlternateRowColor oddColor="rgb(255, 255, 255)" evenColor="rgb(241, 248, 253)"/>
+            </j:beads>
+        </j:Table>
         
         <j:Spacer height="30"/>
 
