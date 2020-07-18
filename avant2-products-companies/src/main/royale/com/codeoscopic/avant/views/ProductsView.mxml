@@ -91,7 +91,7 @@
                 className="complementaries-list"
                 dataProvider="{productCompaniesModel.sortedComplementaries}">
             <j:beads>
-                <j:TileHorizontalLayout columnWidth="190" rowHeight="120"
+                <j:TileHorizontalLayout columnWidth="147" rowHeight="150"
                                     horizontalGap="16" verticalGap="16"/>
                 <js:BrowserResizeListener/>
             </j:beads>

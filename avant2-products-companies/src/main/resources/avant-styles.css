@@ -75,7 +75,7 @@ h1 {
   ISelectableItemRenderer: ClassReference("org.apache.royale.jewel.beads.itemRenderers.ClassSelectorListHoverOnlySelectableItemRendererBead");
 }
 
-.jewel.item.product-renderer {
+.jewel.item.product-renderer, .jewel.item.company-renderer {
   border-bottom: 1px solid #ededed;
 }
 

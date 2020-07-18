@@ -28,15 +28,20 @@
 
     <j:beads>
         <js:ItemRendererDataBinding />
-        <j:Paddings padding="12"/>
+        <j:Paddings padding="0"/>
     </j:beads>
     
     <j:VGroup gap="4" itemsHorizontalAlign="itemsCenter">
-        <j:Image width="150" height="60" src="{complementary.image}"/>
+        <j:Image width="147" height="71" src="{complementary.image}">
+            <j:beads>
+                <j:Paddings padding="12"/>
+            </j:beads>
+        </j:Image>
         
-        <j:Label text="{complementary.name}" className="primary-darkest weight-bold">
+        <j:Label text="{complementary.name}" className="primary-darkest weight-bold" multiline="true">
             <j:beads>
                 <j:SizeControl size="{SizeControl.LARGE}"/>
+                <j:TextAlign align="center"/>
             </j:beads>
         </j:Label>
     </j:VGroup>

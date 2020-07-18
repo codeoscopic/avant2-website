@@ -13,13 +13,14 @@
 <j:ListItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
     xmlns:j="library://ns.apache.org/royale/jewel" 
     xmlns:js="library://ns.apache.org/royale/basic" 
-    maxHeight="{RENDER_NORMAL_HEIGHT}" click="changeHeight()" className="product-renderer">
-
+    maxHeight="{image.height + OFFSET_HEIGHT}"
+    click="changeHeight()" className="product-renderer">
+    
     <fx:Script>
         <![CDATA[
             import com.codeoscopic.avant.vos.Product;
 
-            public static const RENDER_NORMAL_HEIGHT:int = 92;
+            public static const OFFSET_HEIGHT:int = 24;
             public static const RENDER_MAX_HEIGHT:int = 1600;
             
             [Bindable("dataChange")]
@@ -28,7 +29,7 @@
             }
             
             public function changeHeight():void {
-                maxHeight = maxHeight == RENDER_NORMAL_HEIGHT ? RENDER_MAX_HEIGHT : RENDER_NORMAL_HEIGHT;
+                maxHeight = maxHeight == image.height + OFFSET_HEIGHT ? RENDER_MAX_HEIGHT : image.height + OFFSET_HEIGHT;
             }
 		]]>
     </fx:Script>
@@ -39,11 +40,11 @@
         <j:Paddings padding="12"/>
     </j:beads>
 
-    <j:HGroup gap="8" itemsVerticalAlign="itemsCenter" width="100%">
-        <j:Image width="68" height="68" src="{product.image}">
+    <j:HGroup gap="6" itemsVerticalAlign="itemsCenter" width="100%">
+        <j:Image localId="image" width="68" height="68" src="{product.image}">
             <j:beads>
                 <j:ClipImage shape="{ClipImage.CIRCLE_SHAPE}" radius="46" x="50" y="50" units="%"/>
-                <!-- border="1" borderColor="#808080" -->
+                <j:ResponsiveSize phoneWidth="48" phoneHeight="48" tabletWidth="58" tabletHeight="58"/>
             </j:beads>
         </j:Image>
         
@@ -51,6 +52,7 @@
             <j:Label width="100%" text="{product.name}" className="primary-darkest weight-bold">
                 <j:beads>
                     <j:SizeControl size="{SizeControl.XLARGE}"/>
+                    <j:TruncateText/>
                 </j:beads>
             </j:Label>
             <j:Label width="100%" text="{product.description}" className="primary-dark weight-light">
@@ -74,7 +76,6 @@
                 <j:Paddings paddingRight="24"/>
             </js:beads>
         </js:FontAwesomeIcon>
-
     </j:HGroup>
 
     <j:HGroup width="100%">
@@ -83,7 +84,7 @@
                 dataProvider="{product.companies}" labelField="name"
                 itemRenderer="com.codeoscopic.avant.renderers.CompanyDataContainerItemRenderer">
             <j:beads>
-                <j:TileHorizontalLayout columnWidth="174" rowHeight="84"
+                <j:TileHorizontalLayout columnWidth="147" rowHeight="71"
                                     horizontalGap="16" verticalGap="16"/>
                 <js:BrowserResizeListener/>
             </j:beads>

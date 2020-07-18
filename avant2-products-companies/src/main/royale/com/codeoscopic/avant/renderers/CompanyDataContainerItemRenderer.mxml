@@ -34,7 +34,7 @@
         <j:Paddings padding="0"/>
     </j:beads>
 
-    <j:Image localId="logo" width="174" height="84" src="{company.logo}">
+    <j:Image localId="logo" width="147" height="71" src="{company.logo}">
         <j:beads>
             <j:Paddings padding="12"/>
         </j:beads>
