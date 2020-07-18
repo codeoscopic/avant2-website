@@ -42,11 +42,12 @@
     <j:HGroup gap="8" itemsVerticalAlign="itemsCenter" width="100%">
         <j:Image width="68" height="68" src="{product.image}">
             <j:beads>
-                <j:ClipImage shape="{ClipImage.CIRCLE_SHAPE}" radius="46" x="50" y="50" units="%" border="1" borderColor="#808080"/>
+                <j:ClipImage shape="{ClipImage.CIRCLE_SHAPE}" radius="46" x="50" y="50" units="%"/>
+                <!-- border="1" borderColor="#808080" -->
             </j:beads>
         </j:Image>
         
-        <j:VGroup width="100%" minWidth="210" gap="3">
+        <j:VGroup width="100%" minWidth="100" gap="3">
             <j:Label width="100%" text="{product.name}" className="primary-darkest weight-bold">
                 <j:beads>
                     <j:SizeControl size="{SizeControl.XLARGE}"/>

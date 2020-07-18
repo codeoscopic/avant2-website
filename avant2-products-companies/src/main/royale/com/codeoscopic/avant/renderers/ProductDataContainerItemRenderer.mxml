@@ -37,7 +37,8 @@
     <j:VGroup gap="2" itemsHorizontalAlign="itemsCenter" localId="img">
         <j:Image width="68" height="68" src="{product.image}">
             <j:beads>
-                <j:ClipImage shape="{ClipImage.CIRCLE_SHAPE}" radius="46" x="50" y="50" units="%" border="1" borderColor="#808080"/>
+                <j:ClipImage shape="{ClipImage.CIRCLE_SHAPE}" radius="46" x="50" y="50" units="%"/>
+                <!-- border="1" borderColor="#808080" -->
             </j:beads>
         </j:Image>
 
