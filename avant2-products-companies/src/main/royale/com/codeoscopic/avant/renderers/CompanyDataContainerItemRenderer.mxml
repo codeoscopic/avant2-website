@@ -44,7 +44,7 @@
             faStyle="{FontAwesomeIcon.SOLID}" relativeSize="{FontAwesomeIcon.SIZE_X2}"
             spin="true"
             className="secondary-normal"
-            x="140"/>
+            x="120"/>
     
 </j:ListItemRenderer>
 

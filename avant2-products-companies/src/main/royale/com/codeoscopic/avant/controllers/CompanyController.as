@@ -106,6 +106,7 @@ package com.codeoscopic.avant.controllers
 						product.id = products[j].ID;
 						product.name = products[j].productname;
 						product.image = products[j].productimage.guid;
+						product.icon = products[j].producticon.guid;
 						product.wip = true;
 						company.products.addItem(product);
 					}

@@ -41,7 +41,11 @@
             </j:beads>
         </j:Image>
 
-        <j:Label text="{product.name}"/>
+        <j:Label text="{product.name}" multiline="true">
+            <j:beads>
+                <j:TextAlign align="center"/>
+            </j:beads>
+        </j:Label>
     </j:VGroup>
 
     <js:FontAwesomeIcon text="{FontAwesome5IconType.COG}" visible="{product.wip}"
