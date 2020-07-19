@@ -31,7 +31,7 @@
         ,
         {
             "name": "Launch Chrome (Debug version)",
-            "type": "extensionHost",
+            "type": "chrome",
             "request": "launch",
             "url": "file:///${workspaceRoot}/target/javascript/bin/js-debug/index.html",
             "webRoot": "${workspaceRoot}/target/javascript/bin/js-debug",

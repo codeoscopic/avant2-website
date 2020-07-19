@@ -240,6 +240,7 @@
             <exclude>**/html2pdf.bundle.min.js</exclude>
             <exclude>**/iframeResizer.contentWindow.min.js</exclude>
             <exclude>**/iframeResizer.min.js</exclude>
+            <exclude>**/tablericons/*.svg</exclude>
             <!-- READMEs don't have headers -->
             <exclude>README.md</exclude>
             <!-- SASS cc.map generated files by sass-maven-plugin-->
