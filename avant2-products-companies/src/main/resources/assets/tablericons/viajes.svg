@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+    <circle cx="34" cy="34" r="34" style="fill:rgb(34,150,243);"/>
+    <g id="viajes">
+        <path d="M45,23.936l0,0.02" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M45,37.936l-7,-10c-0.656,-1.185 -1,-2.518 -1,-3.872c0,-4.389 3.611,-8 8,-8c4.389,0 8,3.611 8,8c0,1.354 -0.344,2.687 -1,3.872l-7,10" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M30,21.436l-3,-1.5l-12,6l0,26l12,-6l12,6l12,-6l0,-4" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M27,19.936l0,26" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M39,41.936l0,10" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+    </g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+    <circle cx="34" cy="34" r="34" style="fill:rgb(34,150,243);"/>
+    <g id="aasistencia-en-carretera" serif:id="aasistencia en carretera">
+        <circle cx="20" cy="46" r="4" style="fill:none;stroke:white;stroke-width:2px;"/>
+        <circle cx="44" cy="46" r="4" style="fill:none;stroke:white;stroke-width:2px;"/>
+        <path d="M24,48l16,0m8,0l4,0l0,-12c0,-5.486 -4.514,-10 -10,-10l-2,0l3,10l9,0" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M34,48l0,-22l6,0" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M16,46l0,-10l18,0" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M16,30l36,-12" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M22,36l0,-8" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+    </g>
+</svg>

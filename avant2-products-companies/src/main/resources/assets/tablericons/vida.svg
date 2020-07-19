@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+    <circle cx="34" cy="34" r="34" style="fill:rgb(34,150,243);"/>
+    <g id="vida">
+        <path d="M34,48.423l-14,-14c-1.508,-1.634 -2.346,-3.777 -2.346,-6c0,-4.853 3.993,-8.846 8.846,-8.846c2.468,0 4.826,1.033 6.5,2.846c0.604,0.404 1.396,0.404 2,0c1.674,-1.813 4.032,-2.846 6.5,-2.846c4.853,0 8.846,3.993 8.846,8.846c0,2.223 -0.838,4.366 -2.346,6l-14,14" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+    </g>
+</svg>

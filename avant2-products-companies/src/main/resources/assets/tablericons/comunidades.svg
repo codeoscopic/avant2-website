@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+    <circle cx="34" cy="34" r="34" style="fill:rgb(34,150,243);"/>
+    <g id="comunidades">
+        <path d="M26,28l10,10l0,14l-10,0l0,-8m0,8l-10,0l0,-14l10,-10m2,2l0,-12c0,-1.097 0.903,-2 2,-2l20,0c1.097,0 2,0.903 2,2l0,34l-16,0" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M36,24l0,0.02" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M44,24l0,0.02" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M44,32l0,0.02" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M44,40l0,0.02" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+    </g>
+</svg>

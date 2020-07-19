@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+    <circle cx="34" cy="34" r="34" style="fill:rgb(34,150,243);"/>
+    <g id="vehiculo-de-sustitucion">
+        <path d="M28,18c0,-1.104 -0.896,-2 -2,-2l-8,0c-1.104,0 -2,0.896 -2,2l0,8c0,1.104 0.896,2 2,2l8,0c1.104,0 2,-0.896 2,-2l0,-8Z" style="fill:none;stroke:white;stroke-width:2px;"/>
+        <path d="M52,42c0,-1.104 -0.896,-2 -2,-2l-8,0c-1.104,0 -2,0.896 -2,2l0,8c0,1.104 0.896,2 2,2l8,0c1.104,0 2,-0.896 2,-2l0,-8Z" style="fill:none;stroke:white;stroke-width:2px;"/>
+        <path d="M52,32l0,-6c0,-2.194 -1.806,-4 -4,-4l-12,0l6,6m0,-12l-6,6" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+        <path d="M16,36l0,6c0,2.194 1.806,4 4,4l12,0l-6,-6m0,12l6,-6" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;"/>
+    </g>
+</svg>
