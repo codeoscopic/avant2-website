@@ -41,10 +41,10 @@
     </j:beads>
 
     <j:HGroup gap="6" itemsVerticalAlign="itemsCenter" width="100%">
-        <j:Image localId="image" width="68" height="68" src="{product.image}">
+        <j:Image localId="image" width="68" height="68" src="{product.icon}">
             <j:beads>
-                <j:ClipImage shape="{ClipImage.CIRCLE_SHAPE}" radius="46" x="50" y="50" units="%"/>
                 <j:ResponsiveSize phoneWidth="48" phoneHeight="48" tabletWidth="58" tabletHeight="58"/>
+                <js:ErrorImage emptyIsError="true"/>
             </j:beads>
         </j:Image>
         

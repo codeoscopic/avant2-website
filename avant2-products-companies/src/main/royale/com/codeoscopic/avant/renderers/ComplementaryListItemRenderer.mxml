@@ -35,6 +35,7 @@
         <j:Image width="147" height="71" src="{complementary.image}">
             <j:beads>
                 <j:Paddings padding="12"/>
+                <js:ErrorImage emptyIsError="true"/>
             </j:beads>
         </j:Image>
         

@@ -45,6 +45,7 @@
         <j:Image localId="logo" width="150" height="60" src="{company.logo}">
             <j:beads>
                 <j:ResponsiveSize phoneWidth="115" phoneHeight="46" tabletWidth="130" tabletHeight="52"/>
+                <js:ErrorImage emptyIsError="true"/>
             </j:beads>
         </j:Image>
         
