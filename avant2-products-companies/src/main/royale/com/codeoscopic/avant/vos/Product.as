@@ -20,6 +20,7 @@ package com.codeoscopic.avant.vos
         public var name:String;
         public var description:String;
         public var image:String;
+        public var icon:String;
         public var companies:ArrayListView;
         public var wip:Boolean;
         public var order:int;
