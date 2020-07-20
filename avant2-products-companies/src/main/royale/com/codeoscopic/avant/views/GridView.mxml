@@ -117,24 +117,34 @@
         
         <j:Spacer height="30"/>
 
-        <j:HGroup width="475" gap="3" itemsVerticalAlign="itemsCenter" className="table-legend">
+        <j:HGroup width="290" itemsVerticalAlign="itemsTop" className="table-legend">
             <j:beads>
                 <j:Paddings padding="20"/>
             </j:beads>
             
             <html:H3 text="Leyenda" width="100" className="primary-normal"/>
             
-            <js:FontAwesomeIcon className="emphasized-normal"
-                        text="{FontAwesome5IconType.CHECK_CIRCLE}" 
-                        faStyle="{FontAwesomeIcon.SOLID}" 
-                        relativeSize="{FontAwesomeIcon.SIZE_LG}"/>
-            <j:Label text="Producto Disponible" className="weight-bold"/>
-            
-            <js:FontAwesomeIcon className="secondary-normal"
-                        text="{FontAwesome5IconType.COG}" 
-                        faStyle="{FontAwesomeIcon.SOLID}" 
-                        relativeSize="{FontAwesomeIcon.SIZE_LG}"/>
-            <j:Label text="Producto En Progreso" className="weight-bold"/>
+            <j:VGroup gap="6">
+                <j:beads>
+                    <j:Paddings padding="15"/>
+                </j:beads>
+
+                <j:HGroup gap="3" itemsVerticalAlign="itemsCenter">
+                    <js:FontAwesomeIcon className="emphasized-normal"
+                                text="{FontAwesome5IconType.CHECK_CIRCLE}" 
+                                faStyle="{FontAwesomeIcon.SOLID}" 
+                                relativeSize="{FontAwesomeIcon.SIZE_LG}"/>
+                    <j:Label text="Producto Disponible" className="weight-bold"/>
+                </j:HGroup> 
+
+                <j:HGroup gap="3" itemsVerticalAlign="itemsCenter">
+                    <js:FontAwesomeIcon className="secondary-normal"
+                                text="{FontAwesome5IconType.COG}" 
+                                faStyle="{FontAwesomeIcon.SOLID}" 
+                                relativeSize="{FontAwesomeIcon.SIZE_LG}"/>
+                    <j:Label text="Integración En Progreso" className="weight-bold"/>
+                </j:HGroup>
+            </j:VGroup>
             
         </j:HGroup>   
     </j:GridCell>

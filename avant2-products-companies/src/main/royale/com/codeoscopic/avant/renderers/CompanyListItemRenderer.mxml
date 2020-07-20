@@ -48,23 +48,25 @@
                 <js:ErrorImage emptyIsError="true"/>
             </j:beads>
         </j:Image>
-        
-        <j:VGroup width="100%" minWidth="80" gap="3">
+
+        <j:VGroup width="100%" minWidth="72" gap="3">
             <j:Label width="100%" text="{company.name}" className="primary-darkest weight-bold">
                 <j:beads>
                     <j:SizeControl size="{SizeControl.XLARGE}"/>
+                    <j:TruncateText/>
                     <j:ResponsiveVisibility phoneVisible="false"/>
                 </j:beads>
             </j:Label>
-            <j:Label width="100%" text="">
+            <j:Label width="100%" text="{company.products.length + ' producto' + (company.products.length == 1 ? '' : 's')}"
+                    className="primary-dark weight-light">
                 <j:beads>
-                    <j:SizeControl size="{SizeControl.XLARGE}"/>
-                    <j:ResponsiveVisibility phoneVisible="true" tabletVisible="false" desktopVisible="false" wideScreenVisible="false"/>
+                    <j:SizeControl size="{SizeControl.LARGE}"/>
+                    <j:TruncateText/>
                 </j:beads>
             </j:Label>
         </j:VGroup>
 
-        <j:Label text="{company.products.length + ' producto' + (company.products.length == 1 ? '' : 's')}"
+        <j:Label text="Mostrar"
             maxWidth="116" className="companies-number-tag">
             <j:beads>
                 <j:SizeControl size="{SizeControl.LARGE}"/>

@@ -43,7 +43,7 @@
     <j:GridCell desktopNumerator="1" desktopDenominator="1" tabletNumerator="1" tabletDenominator="1" phoneNumerator="1" phoneDenominator="1">
         <j:BarRow>
             <j:BarSection gap="3" itemsVerticalAlign="itemsCenter" width="75%">
-                <html:H1 text="{productCompaniesModel.sortedCompanies.length} Aseguradoras" className="weight-bold"/>
+                <html:H1 text="Aseguradoras" className="weight-bold"/>
                 <j:IconButton text="Productos" unboxed="true" emphasis="primary" className="buttonlink"
                     click="changeView()">
                     <j:icon>

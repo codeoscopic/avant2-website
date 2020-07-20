@@ -48,14 +48,15 @@
             </j:beads>
         </j:Image>
         
-        <j:VGroup width="100%" minWidth="100" gap="3">
+        <j:VGroup width="100%" minWidth="140" gap="3">
             <j:Label width="100%" text="{product.name}" className="primary-darkest weight-bold">
                 <j:beads>
                     <j:SizeControl size="{SizeControl.XLARGE}"/>
                     <j:TruncateText/>
                 </j:beads>
             </j:Label>
-            <j:Label width="100%" text="{product.description}" className="primary-dark weight-light">
+            <j:Label width="100%" text="{product.companies.length + ' compañia' + (product.companies.length == 1 ? '' : 's')}"
+                    className="primary-dark weight-light">
                 <j:beads>
                     <j:SizeControl size="{SizeControl.LARGE}"/>
                     <j:TruncateText/>
@@ -63,7 +64,7 @@
             </j:Label>
         </j:VGroup>
 
-        <j:Label text="{product.companies.length + ' compañia' + (product.companies.length == 1 ? '' : 's')}"
+        <j:Label text="Mostrar"
             maxWidth="140" className="companies-number-tag">
             <j:beads>
                 <j:SizeControl size="{SizeControl.LARGE}"/>
