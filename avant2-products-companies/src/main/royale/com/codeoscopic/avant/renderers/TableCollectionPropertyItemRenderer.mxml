@@ -24,10 +24,12 @@
             [Bindable("dataChange")]
             public function get hasProduct():Boolean
             {
-                if(!(data as Company).products)
+                var company:Company = data as Company;
+                
+                if(!company.products && !company.hasComplementaries)
                     return false;
 
-                var array:Array = (data as Company).products.source;
+                var array:Array = company.products.source;
                 var len:int = array.length;
                 for(var index:int = 0; index < len; index++)
                 {

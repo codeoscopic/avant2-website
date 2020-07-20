@@ -38,5 +38,8 @@ package com.codeoscopic.avant.models
         public var gridColumns:Array;
 
 		public var selectedContent:String;
+		
+        public var complementariesProductLabel:String = "Complementarios";
+        public var numComplementariesProduct:int = 0;
 	}
 }

@@ -23,6 +23,7 @@ package com.codeoscopic.avant.controllers
 	import org.apache.royale.collections.Sort;
 	import org.apache.royale.collections.SortField;
 	import org.apache.royale.crux.utils.services.ServiceHelper;
+	import org.apache.royale.jewel.supportClasses.table.TableColumn;
 
 	/**
      * The Todo Controller holds all the global actions. The views dispatch events that bubbles and
@@ -78,13 +79,14 @@ package com.codeoscopic.avant.controllers
 			var products_wip:Array;
 			for (var i:int = 0; i < data.length; i++) {
 				// don't add this company if we don't have any product in it
-				if(!data[i].products && !data[i].productswip)
+				if(!data[i].products && !data[i].productswip && data[i].companyhascomplementaries != "1")
 					continue;
 				company = new Company();
 				company.id = data[i].id;
 				company.name = data[i].companyname;
-				// company.description = data[i].companydescription;
+				
 				company.logo = data[i].companylogo.guid;
+				company.hasComplementaries = data[i].companyhascomplementaries == 1 ? true : false;
 				
 				// add products
 				products = data[i].products;
@@ -93,7 +95,6 @@ package com.codeoscopic.avant.controllers
 					product = new Product();
 					product.id = products[j].ID;
 					product.name = products[j].productname;
-					// product.image = products[j].productimage.guid;
 					product.icon = products[j].producticon.guid;
 					company.products.addItem(product);
 				}
@@ -105,17 +106,36 @@ package com.codeoscopic.avant.controllers
 						product = new Product();
 						product.id = products[j].ID;
 						product.name = products[j].productname;
-						// product.image = products[j].productimage.guid;
 						product.icon = products[j].producticon.guid;
 						product.wip = true;
 						company.products.addItem(product);
 					}
 				}
+
+				if(company.hasComplementaries)
+				{
+					product = new Product();
+					product.id = -1;
+					product.name = model.complementariesProductLabel;
+					product.icon = "https://avant2.es/wp-content/uploads/2020/07/productos-complementarios.svg";
+					company.products.addItem(product);
+					
+					// increment counter to show in table
+					model.numComplementariesProduct++;
+				}
+
 				company.products.sort = sort;
 				company.products.refresh();
 
 				model.companies.addItem(company);
 			}
+
+			// now that we have all the fake complementaries add the column to the table
+			var column:TableColumn = new TableColumn();
+			column.dataField = model.complementariesProductLabel;
+			column.label = model.complementariesProductLabel + " (" + model.numComplementariesProduct + ")";
+			column.align = "center";
+			model.gridColumns.push(column);
 
 			var alv:ArrayListView = new ArrayListView(model.companies);
 			alv.sort = sort;

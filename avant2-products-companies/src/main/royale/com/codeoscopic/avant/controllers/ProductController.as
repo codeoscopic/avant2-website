@@ -104,7 +104,6 @@ package com.codeoscopic.avant.controllers
 					product.id = data[i].id;
 					product.name = data[i].productname;
 					product.description = data[i].productdescription;
-					// product.image = data[i].productimage.guid;
 					product.icon = data[i].producticon.guid;
 					product.order = data[i].productorder;
 
@@ -222,7 +221,7 @@ package com.codeoscopic.avant.controllers
 			column = new TableColumn();
 			column.dataField = "name";
 			column.label = "Compañías";
-			column.align = "center"
+			column.align = "center";
 			column.itemRenderer = new ClassFactory(TableImageLogoItemRenderer);
 
 			model.gridColumns.unshift(column);

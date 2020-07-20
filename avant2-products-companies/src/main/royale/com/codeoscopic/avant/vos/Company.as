@@ -22,5 +22,6 @@ package com.codeoscopic.avant.vos
         public var logo:String;
         public var products:ArrayListView;
         public var wip:Boolean;
+        public var hasComplementaries:Boolean;
     }
 }
