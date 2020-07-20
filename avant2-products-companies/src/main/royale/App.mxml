@@ -29,6 +29,7 @@
                 <crux:CruxConfig
                     eventPackages="com.codeoscopic.avant.events.*"
                     viewPackages="com.codeoscopic.avant.views.*"/>
+                    <!-- , com.codeoscopic.avant.renderers.* -->
             </crux:config>
         </crux:Crux>
 	</j:beads>

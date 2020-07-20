@@ -117,7 +117,7 @@
         
         <j:Spacer height="30"/>
 
-        <j:HGroup width="290" itemsVerticalAlign="itemsTop" className="table-legend">
+        <j:HGroup width="360" itemsVerticalAlign="itemsTop" className="table-legend">
             <j:beads>
                 <j:Paddings padding="20"/>
             </j:beads>
@@ -143,6 +143,14 @@
                                 faStyle="{FontAwesomeIcon.SOLID}" 
                                 relativeSize="{FontAwesomeIcon.SIZE_LG}"/>
                     <j:Label text="Integración En Progreso" className="weight-bold"/>
+                </j:HGroup>
+                
+                <j:HGroup gap="3" itemsVerticalAlign="itemsCenter">
+                    <js:FontAwesomeIcon className="primary-dark"
+                                text="{FontAwesome5IconType.CHART_NETWORK}" 
+                                faStyle="{FontAwesomeIcon.SOLID}" 
+                                relativeSize="{FontAwesomeIcon.SIZE_LG}"/>
+                    <j:Label text="Con Productos Complementarios" className="weight-bold"/>
                 </j:HGroup>
             </j:VGroup>
             

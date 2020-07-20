@@ -128,6 +128,10 @@ j|Table {
   border-top: 1px dashed #d9d9d9;
 }
 
+.jewel.table .jewel.tableitem.complementaries {
+  background: #FFF9EA;
+}
+
 .table-legend {
   background: #f1f8fd;
 }

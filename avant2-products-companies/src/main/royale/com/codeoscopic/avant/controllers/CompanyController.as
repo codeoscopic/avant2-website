@@ -114,10 +114,7 @@ package com.codeoscopic.avant.controllers
 
 				if(company.hasComplementaries)
 				{
-					product = new Product();
-					product.id = -1;
-					product.name = model.complementariesProductLabel;
-					product.icon = "https://avant2.es/wp-content/uploads/2020/07/productos-complementarios.svg";
+					product = model.complementaryProduct;
 					company.products.addItem(product);
 					
 					// increment counter to show in table

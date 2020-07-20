@@ -34,7 +34,7 @@
         <j:Paddings padding="0"/>
     </j:beads>
     
-    <j:VGroup gap="2" itemsHorizontalAlign="itemsCenter" localId="img">
+    <j:VGroup gap="2" itemsHorizontalAlign="itemsCenter" localId="img" width="108">
         <j:Image width="68" height="68" src="{product.icon}">
             <j:beads>
                 <js:ErrorImage emptyIsError="true"/>
@@ -52,7 +52,7 @@
             faStyle="{FontAwesomeIcon.SOLID}" relativeSize="{FontAwesomeIcon.SIZE_X2}"
             spin="true"
             className="secondary-normal"
-            x="50"/>
+            x="70"/>
     
 </j:ListItemRenderer>
 

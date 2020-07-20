@@ -43,6 +43,15 @@
                         icon.text = FontAwesome5IconType.COG;
                     }
 
+                    if(labelField == "Complementarios")
+                    {
+                        icon.text = FontAwesome5IconType.CHART_NETWORK;
+                        icon.removeClass("emphasized-normal");
+                        icon.removeClass("secondary-normal");
+                        icon.addClass("primary-dark");
+                        addClass("complementaries");
+                    }
+                    
                     if(product.name == labelField)
                         return true;
                 }

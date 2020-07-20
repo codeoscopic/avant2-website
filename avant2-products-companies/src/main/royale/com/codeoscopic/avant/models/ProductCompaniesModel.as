@@ -14,6 +14,7 @@ package com.codeoscopic.avant.models
 	import org.apache.royale.collections.ArrayList;
 	import org.apache.royale.collections.ArrayListView;
 	import org.apache.royale.events.EventDispatcher;
+	import com.codeoscopic.avant.vos.Product;
 
     /**
      *  Todo Model stores global model variables that are updated by controller
@@ -22,6 +23,13 @@ package com.codeoscopic.avant.models
 	[Bindable]
 	public class ProductCompaniesModel
 	{
+        public function ProductCompaniesModel():void
+        {
+            complementaryProduct = new Product();
+            complementaryProduct.id = -1;
+            complementaryProduct.name = complementariesProductLabel;
+            complementaryProduct.icon = complementaryProductIcon;
+        }
         public static const LOADER_VIEW:String = "loader";
         public static const PRODUCTS_VIEW:String = "products";
         public static const COMPANIES_VIEW:String = "companies";
@@ -39,7 +47,9 @@ package com.codeoscopic.avant.models
 
 		public var selectedContent:String;
 		
+        public var complementaryProduct:Product;
         public var complementariesProductLabel:String = "Complementarios";
+        public var complementaryProductIcon:String = "https://avant2.es/wp-content/uploads/2020/07/productos-complementarios.svg";
         public var numComplementariesProduct:int = 0;
 	}
 }
