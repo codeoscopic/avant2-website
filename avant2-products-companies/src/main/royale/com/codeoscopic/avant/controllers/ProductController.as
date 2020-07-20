@@ -104,7 +104,7 @@ package com.codeoscopic.avant.controllers
 					product.id = data[i].id;
 					product.name = data[i].productname;
 					product.description = data[i].productdescription;
-					product.image = data[i].productimage.guid;
+					// product.image = data[i].productimage.guid;
 					product.icon = data[i].producticon.guid;
 					product.order = data[i].productorder;
 

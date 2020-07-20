@@ -93,7 +93,7 @@ package com.codeoscopic.avant.controllers
 					product = new Product();
 					product.id = products[j].ID;
 					product.name = products[j].productname;
-					product.image = products[j].productimage.guid;
+					// product.image = products[j].productimage.guid;
 					product.icon = products[j].producticon.guid;
 					company.products.addItem(product);
 				}
@@ -105,7 +105,7 @@ package com.codeoscopic.avant.controllers
 						product = new Product();
 						product.id = products[j].ID;
 						product.name = products[j].productname;
-						product.image = products[j].productimage.guid;
+						// product.image = products[j].productimage.guid;
 						product.icon = products[j].producticon.guid;
 						product.wip = true;
 						company.products.addItem(product);
