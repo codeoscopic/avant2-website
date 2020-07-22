@@ -18,56 +18,11 @@
         <![CDATA[
             import com.codeoscopic.avant.vos.Company;
 
-            // import org.apache.royale.utils.Timer;
-
             [Bindable("dataChange")]
             public function get company():Company
             {
                 return data as Company;
             }
-
-            // override public function addedToParent():void
-            // {
-            //     super.addedToParent();
-            //     img.addEventListener("loadComplete", getBase64Image);
-            // }
-
-            // private var timer:Timer;
-
-            // private function getBase64Image():void {
-            //     img.removeEventListener("loadComplete", getBase64Image);
-            //     img.element.setAttribute("crossOrigin","anonymous");
-
-            //     timer = new Timer(500, 0);
-            //     timer.addEventListener("timer", performDraw);
-            //     timer.start();
-            // }
-                
-            // private function performDraw():void {
-            //     timer.removeEventListener("timer", performDraw);
-            //     timer.stop();
-            //     timer = null;
-
-            //     // Create an empty canvas element
-            //     var canvas:HTMLCanvasElement = document.createElement("canvas") as HTMLCanvasElement;
-            //     canvas.width = img.width;
-            //     canvas.height = img.height;
-
-            //     // Copy the image contents to the canvas
-            //     var ctx:Object = canvas.getContext("2d");
-            //     ctx.drawImage(img.element, 0, 0, img.width, img.height);
-
-            //     // Get the data-URL formatted image
-            //     var dataURL:* = canvas.toDataURL("image/png");
-
-            //     removeElement(img)
-
-            //     var newImg:Image = new Image();
-            //     newImg.width = img.width;
-            //     newImg.height = img.height;
-            //     newImg.src = dataURL;
-            //     addElement(newImg);
-            // }
         ]]>
     </fx:Script>
 
