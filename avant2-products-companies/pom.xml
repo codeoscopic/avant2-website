@@ -111,6 +111,12 @@
     </pluginManagement>
 
     <plugins>
+      <!-- Add IntelliJ Support -->
+      <plugin>
+        <groupId>net.flexmojos.oss</groupId>
+        <artifactId>flexmojos-maven-plugin</artifactId>
+        <version>7.1.1</version>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>

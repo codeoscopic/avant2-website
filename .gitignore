@@ -1,2 +1,6 @@
 # building
 target/
+
+# intellij
+**/.idea/**
+**.iml
