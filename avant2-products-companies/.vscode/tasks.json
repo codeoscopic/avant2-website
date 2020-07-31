@@ -54,16 +54,9 @@
             "label": "build with asconfigc",
             "type": "shell",
             "command": "asconfigc",
-            "windows": {
-                "args": [
-                    "--sdk=C:\\Apache\\royale-asjs"
-                ]
-            },
-            "osx": {
-                "args": [
-                    "--sdk=${env:ROYALE_HOME}"
-                ]
-            },
+            "args": [
+                "--sdk=${config:as3mxml.sdk.framework}"
+            ],
             "presentation": {
                 "echo": true,
                 "reveal": "always",
