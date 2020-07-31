@@ -13,7 +13,18 @@
     "compilerOptions": {
         "debug": true,
         "targets": [
+            "SWF",
             "JSRoyale"
+        ],
+        "define": [
+            {
+                "name": "COMPILE::JS",
+                "value": true
+            },
+            {
+                "name": "COMPILE::SWF",
+                "value": false
+            }
         ],
         "source-path": [
             "src/main/royale"
@@ -31,6 +42,6 @@
         //     "${royalelib}/js/libs/MXRoyaleJS.swc"
         // ],
         "source-map": true,
-        "output": "target/HTML2PDFClasses.swc"
+        "output": "target/royale-html2pdf-1.0-SNAPSHOT-js.swc"
     }
 }
