@@ -19,12 +19,20 @@
             import com.codeoscopic.avant.vos.Company;
             import com.codeoscopic.avant.vos.Product;
 
+            // import com.codeoscopic.avant.models.ProductCompaniesModel;
+
+            // [Inject]
+            // [Bindable]
+			// public var productCompaniesModel:ProductCompaniesModel;
+
             public var wipExist:Boolean = false;
 
             [Bindable("dataChange")]
             public function get hasProduct():Boolean
             {
                 var company:Company = data as Company;
+
+                // trace(productCompaniesModel.complementariesProductLabel)
                 
                 if(!company.products && !company.hasComplementaries)
                     return false;
