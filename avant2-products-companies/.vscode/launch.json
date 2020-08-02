@@ -6,6 +6,7 @@
             "request": "launch",
             "name": "Brave - Debug version",
             "runtimeExecutable": "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
+            "runtimeArgs": ["--auto-ssl-client-auth"],
             "userDataDir": true,
             // "url": "http://localhost:8080",
             // "webRoot": "${workspaceFolder}"
@@ -20,6 +21,7 @@
             "request": "launch",
             "name": "Brave - Release version",
             "runtimeExecutable": "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
+            "runtimeArgs": ["--auto-ssl-client-auth", "--profile-directory=debug-profile"],
             "userDataDir": true,
             // "url": "http://localhost:8080",
             // "webRoot": "${workspaceFolder}"
