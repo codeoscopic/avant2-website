@@ -148,8 +148,7 @@
                 <j:HGroup gap="3" itemsVerticalAlign="itemsCenter">
                     <js:FontAwesomeIcon className="primary-dark"
                                 text="{FontAwesome5IconType.CHART_NETWORK}" 
-                                faStyle="{FontAwesomeIcon.SOLID}" 
-                                relativeSize="{FontAwesomeIcon.SIZE_LG}"/>
+                                faStyle="{FontAwesomeIcon.SOLID}"/>
                     <j:Label text="Con Productos Complementarios" className="weight-bold"/>
                 </j:HGroup>
             </j:VGroup>
