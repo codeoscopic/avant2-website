@@ -18,6 +18,7 @@ package com.codeoscopic.avant.controllers
 	import com.codeoscopic.avant.vos.Company;
 	import com.codeoscopic.avant.vos.Complementary;
 	import com.codeoscopic.avant.vos.Product;
+	import com.codeoscopic.avant.vos.Provider;
 
 	import mx.rpc.events.ResultEvent;
 
@@ -96,10 +97,12 @@ package com.codeoscopic.avant.controllers
 				model.products = new ArrayList();
 				var product:Product;
 				var company:Company;
+				var provider:Provider;
 				var companies:Array;
+				var providers:Array;
 				for (var i:int = 0; i < data.length; i++) {
 					// don't add this product if we don't have any company in it
-					if(!data[i].companies && !data[i].companieswip)
+					if(!data[i].companies && !data[i].companieswip && !data[i].providers)
 						continue;
 					product = new Product();
 					product.id = data[i].id;
@@ -128,6 +131,40 @@ package com.codeoscopic.avant.controllers
 							company.logo = companies[j].companylogo.guid;
 							company.wip = true;
 							product.companies.addItem(company);
+						}
+					}
+					// now go over providers
+					providers = data[i].providers;
+					if(providers) {
+						for (j = 0; j < providers.length; j++) {
+							provider = new Provider();
+							provider.id = providers[j].ID;
+							provider.name = providers[j].providername;
+							provider.logo = providers[j].providerlogo.guid;
+							provider.color = providers[j].providercolor;
+
+							// for now there can be only one provider
+							product.provider = provider;
+							
+							for (var l:Object in providers[j].providerproducts)
+							{
+								if(providers[j].providerproducts[l].ID == product.id)
+								{
+									var companies_o:Object = providers[j].companies;
+									for (var k:Object in companies_o)
+									{
+										company = new Company();
+										company.id = companies_o[k].ID;
+										company.name = companies_o[k].companyname;
+										// console.log(" - ",company.name,company.id);
+										company.logo = companies_o[k].companylogo.guid;
+										company.provider = provider;
+										product.companies.addItem(company);
+									}
+									continue;
+								}
+							}
+							continue; // for now there can be only one provider
 						}
 					}
 					product.companies.sort = sortSubCias;
