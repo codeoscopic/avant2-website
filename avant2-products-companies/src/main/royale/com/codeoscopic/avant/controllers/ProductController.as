@@ -145,6 +145,8 @@ package com.codeoscopic.avant.controllers
 
 							// for now there can be only one provider
 							product.provider = provider;
+
+							addToLegendProviers(provider);
 							
 							for (var l:Object in providers[j].providerproducts)
 							{
@@ -183,6 +185,23 @@ package com.codeoscopic.avant.controllers
 
 				model.selectedContent = "products";//ProductCompaniesModel.PRODUCTS_VIEW;
 			}
+		}
+
+		public function addToLegendProviers(provider:Provider):void
+		{
+			var found:Boolean;
+
+			for each(var p:Provider in model.legendProviders)
+			{
+				if(p.id == provider.id)
+				{
+					found = true;
+					continue;
+				}
+			}
+
+			if(!found)
+				model.legendProviders.addItem(provider);
 		}
 
 		/**

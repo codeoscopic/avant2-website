@@ -51,5 +51,7 @@ package com.codeoscopic.avant.models
         public var complementariesProductLabel:String = "Complementarios";
         public var complementaryProductIcon:String = "https://avant2.es/wp-content/uploads/2020/07/productos-complementarios.svg";
         public var numComplementariesProduct:int = 0;
+
+        public var legendProviders:ArrayList = new ArrayList();
 	}
 }
