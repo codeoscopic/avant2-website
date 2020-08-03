@@ -46,5 +46,10 @@
             className="secondary-normal"
             x="120"/>
     
+    <js:FontAwesomeIcon text="{FontAwesome5IconType.PARKING_CIRCLE}" visible="{company.provider}"
+            faStyle="{FontAwesomeIcon.REGULAR}" relativeSize="{FontAwesomeIcon.SIZE_X2}"
+            style="color: {company.provider.color};"
+            x="120" y="44"/>
+    
 </j:ListItemRenderer>
 
