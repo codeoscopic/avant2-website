@@ -81,15 +81,28 @@
 
     <j:HGroup width="100%">
         <j:Spacer width="90"/>
-        <j:DataContainer localId="companies" width="100%" minWidth="365"
-                dataProvider="{product.companies}" labelField="name"
-                itemRenderer="com.codeoscopic.avant.renderers.CompanyDataContainerItemRenderer">
-            <j:beads>
-                <j:TileHorizontalLayout columnWidth="147" rowHeight="71"
-                                    horizontalGap="16" verticalGap="16"/>
-                <js:BrowserResizeListener/>
-            </j:beads>
-        </j:DataContainer>
+        <j:VGroup width="100%" itemsHorizontalAlign="itemsRight">
+            <j:DataContainer localId="companies" width="100%" minWidth="365"
+                    dataProvider="{product.companies}" labelField="name"
+                    itemRenderer="com.codeoscopic.avant.renderers.CompanyDataContainerItemRenderer">
+                <j:beads>
+                    <j:TileHorizontalLayout columnWidth="147" rowHeight="71"
+                                        horizontalGap="16" verticalGap="16"/>
+                    <js:BrowserResizeListener/>
+                </j:beads>
+            </j:DataContainer>
+            <j:HGroup gap="3" itemsVerticalAlign="itemsCenter" visible="{product.provider}">
+                <js:FontAwesomeIcon text="{FontAwesome5IconType.PARKING_CIRCLE}"
+                    faStyle="{FontAwesomeIcon.REGULAR}" relativeSize="{FontAwesomeIcon.SIZE_X2}"
+                    style="color: {product.provider.color};"/>
+                <j:Label text="Ofredido por"/>
+                <j:Image width="150" height="60" src="{product.provider.logo}">
+                    <j:beads>
+                        <js:ErrorImage emptyIsError="true"/>
+                    </j:beads>
+                </j:Image>
+            </j:HGroup>
+        </j:VGroup>
     </j:HGroup>
 
 </j:ListItemRenderer>
