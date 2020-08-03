@@ -11,8 +11,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 package com.codeoscopic.avant.vos
 {
-    import org.apache.royale.collections.ArrayListView;
-
     [Bindable]
     public class Complementary
     {

@@ -19,7 +19,6 @@
         <![CDATA[
 			import com.codeoscopic.avant.events.ProductCompaniesEvent;
 			import com.codeoscopic.avant.models.ProductCompaniesModel;
-			import com.codeoscopic.avant.models.ProductCompaniesModel;
 
             [Inject]
             [Bindable]
