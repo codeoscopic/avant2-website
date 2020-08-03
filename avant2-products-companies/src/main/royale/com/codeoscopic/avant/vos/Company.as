@@ -23,5 +23,6 @@ package com.codeoscopic.avant.vos
         public var products:ArrayListView;
         public var wip:Boolean;
         public var hasComplementaries:Boolean;
+        public var provider:Provider;
     }
 }

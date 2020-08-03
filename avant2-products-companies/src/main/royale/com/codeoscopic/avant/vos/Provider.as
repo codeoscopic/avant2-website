@@ -14,15 +14,13 @@ package com.codeoscopic.avant.vos
     import org.apache.royale.collections.ArrayListView;
 
     [Bindable]
-    public class Product
+    public class Provider
     {
         public var id:Number;
         public var name:String;
         public var description:String;
-        public var icon:String;
-        public var companies:ArrayListView;
-        public var wip:Boolean;
-        public var order:int;
-        public var provider:Provider;
+        public var logo:String;
+        public var color:String;
+        // public var products:ArrayListView;
     }
 }
