@@ -90,6 +90,8 @@ package com.codeoscopic.avant.controllers
 
 				var sort:Sort = new Sort();
 				sort.fields = [new SortField("order", false, false, true)];
+				var sortSubCias:Sort = new Sort();
+				sortSubCias.fields = [new SortField("name", false, false)];
 				
 				model.products = new ArrayList();
 				var product:Product;
@@ -130,6 +132,7 @@ package com.codeoscopic.avant.controllers
 						}
 					}
 					product.companies.sort = sort;
+					product.companies.sort = sortSubCias;
 					product.companies.refresh();
 
 					model.products.addItem(product);
