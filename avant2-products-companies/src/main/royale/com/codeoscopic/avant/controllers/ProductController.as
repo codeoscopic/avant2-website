@@ -97,7 +97,6 @@ package com.codeoscopic.avant.controllers
 				var product:Product;
 				var company:Company;
 				var companies:Array;
-				var companies_wip:Array;
 				for (var i:int = 0; i < data.length; i++) {
 					// don't add this product if we don't have any company in it
 					if(!data[i].companies && !data[i].companieswip)
@@ -131,7 +130,6 @@ package com.codeoscopic.avant.controllers
 							product.companies.addItem(company);
 						}
 					}
-					product.companies.sort = sort;
 					product.companies.sort = sortSubCias;
 					product.companies.refresh();
 
