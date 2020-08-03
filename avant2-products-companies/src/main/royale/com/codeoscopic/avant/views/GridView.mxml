@@ -151,6 +151,37 @@
                                 faStyle="{FontAwesomeIcon.SOLID}"/>
                     <j:Label text="Con Productos Complementarios" className="weight-bold"/>
                 </j:HGroup>
+
+                <j:DataContainer width="100%" labelField="name"
+                    dataProvider="{productCompaniesModel.legendProviders}">
+                    <j:beads>
+                        <j:Viewport clipContent="false"/>
+                    </j:beads>
+                    <j:itemRenderer>
+                        <fx:Component>
+                            <j:ListItemRenderer width="100%">
+                                <j:beads>
+                                    <js:ItemRendererDataBinding/>
+                                </j:beads>
+                                <j:HGroup gap="3" itemsVerticalAlign="itemsCenter">
+                                    <js:FontAwesomeIcon
+                                                text="{FontAwesome5IconType.PARKING_CIRCLE}" 
+                                                faStyle="{FontAwesomeIcon.REGULAR}" 
+                                                relativeSize="{FontAwesomeIcon.SIZE_LG}"
+                                                style="color: {data.color};"/>
+                                    <j:Label text="Ofrecido por" className="weight-bold"/>
+                                    <j:Image width="60" height="24" src="{data.logo}">
+                                        <j:beads>
+                                            <js:ErrorImage emptyIsError="true"/>
+                                        </j:beads>
+                                    </j:Image>
+                                </j:HGroup>
+                            </j:ListItemRenderer>
+                        </fx:Component>
+                    </j:itemRenderer>
+                </j:DataContainer>
+                
+                
             </j:VGroup>
             
         </j:HGroup>   
