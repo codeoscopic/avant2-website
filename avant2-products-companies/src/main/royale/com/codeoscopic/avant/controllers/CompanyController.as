@@ -15,6 +15,7 @@ package com.codeoscopic.avant.controllers
 	import com.codeoscopic.avant.services.CompanyDelegate;
 	import com.codeoscopic.avant.vos.Company;
 	import com.codeoscopic.avant.vos.Product;
+	import com.codeoscopic.avant.vos.Provider;
 
 	import mx.rpc.events.ResultEvent;
 
@@ -75,15 +76,18 @@ package com.codeoscopic.avant.controllers
 			model.companies = new ArrayList();
 			var company:Company;
 			var product:Product;
+			var provider:Provider;
 			var products:Array;
-			var products_wip:Array;
+			
 			for (var i:int = 0; i < data.length; i++) {
 				// don't add this company if we don't have any product in it
 				if(!data[i].products && !data[i].productswip && data[i].companyhascomplementaries != "1")
 					continue;
+				
 				company = new Company();
 				company.id = data[i].id;
 				company.name = data[i].companyname;
+				// console.log(company.name, company.id)
 				
 				company.logo = data[i].companylogo.guid;
 				company.hasComplementaries = data[i].companyhascomplementaries == 1 ? true : false;
@@ -96,6 +100,26 @@ package com.codeoscopic.avant.controllers
 					product.id = products[j].ID;
 					product.name = products[j].productname;
 					product.icon = products[j].producticon.guid;
+					// console.log(" - ", product.name, product.id)
+					
+					// has provider?
+					if(!(products[j].providers is Array))
+					{
+						for (var l:Object in products[j].providers)
+						{
+							provider = new Provider();
+							provider.id = products[j].providers[l].ID;
+							provider.name = products[j].providers[l].providername;
+							provider.logo = products[j].providers[l].providerlogo.guid;
+							provider.color = products[j].providers[l].providercolor;
+							product.provider = provider;
+							provider = null;
+							continue; // for now there can be only one provider
+						}
+					}
+					// if(product.provider != null)
+					// 	console.log("  - ", product.provider.name, product.provider.id);
+
 					company.products.addItem(product);
 				}
 				// now go over products wip
@@ -120,6 +144,9 @@ package com.codeoscopic.avant.controllers
 					// increment counter to show in table
 					model.numComplementariesProduct++;
 				}
+
+				// now go over providers
+
 
 				company.products.sort = sort;
 				company.products.refresh();

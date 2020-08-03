@@ -42,15 +42,7 @@
                 for(var index:int = 0; index < len; index++)
                 {
                     var product:Product = array[index];
-
-                    if(!wipExist && product.wip)
-                    {
-                        wipExist = true;
-                        icon.removeClass("emphasized-normal");
-                        icon.addClass("secondary-normal");
-                        icon.text = FontAwesome5IconType.COG;
-                    }
-
+                    
                     if(labelField == "Complementarios")
                     {
                         icon.text = FontAwesome5IconType.CHART_NETWORK;
@@ -59,9 +51,27 @@
                         icon.addClass("primary-dark");
                         addClass("complementaries");
                     }
-                    
+
                     if(product.name == labelField)
+                    {
+                        if(!wipExist && product.wip)
+                        {
+                            wipExist = true;
+                            icon.removeClass("emphasized-normal");
+                            icon.addClass("secondary-normal");
+                            icon.text = FontAwesome5IconType.COG;
+                        }
+                        else if(product.provider)
+                        {
+                            icon.removeClass("emphasized-normal");
+                            icon.removeClass("secondary-normal");
+                            icon.style = "color:" + product.provider.color + ";";
+                            icon.text = FontAwesome5IconType.PARKING_CIRCLE;
+                            icon.faStyle = FontAwesomeIcon.REGULAR;
+                        }
+                    
                         return true;
+                    }
                 }
                 
                 return false;
