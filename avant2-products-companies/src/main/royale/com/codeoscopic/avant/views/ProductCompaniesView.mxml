@@ -14,7 +14,8 @@
     xmlns:j="library://ns.apache.org/royale/jewel"
     xmlns:js="library://ns.apache.org/royale/basic"
     xmlns:html="library://ns.apache.org/royale/html"
-    xmlns:views="com.codeoscopic.avant.views.*">
+    xmlns:views="com.codeoscopic.avant.views.*"
+    initComplete="initCompleteHandler()">
 
     <fx:Script>
         <![CDATA[
@@ -25,6 +26,11 @@
             [Inject]
             [Bindable]
 			public var productCompaniesModel:ProductCompaniesModel;
+
+            private function initCompleteHandler():void
+            {
+                buildVersionLabel.html = "v." + ProductCompaniesModel.projectVersion + '.' + ProductCompaniesModel.buildNumber;
+            }
         ]]>
     </fx:Script>
 
@@ -50,6 +56,13 @@
             <views:GridView/>
         </j:SectionContent>
     </j:ApplicationMainContent>
+
+    <j:Label localId="buildVersionLabel" html="*version*" width="100%">
+        <j:beads>
+            <j:TextAlign align="center"/>
+            <j:SizeControl size="{SizeControl.SMALL}"/>
+        </j:beads>
+    </j:Label>
 
     <j:ImageButton src="assets/powered-by-apache-royale.png" width="200" 
                 click="BrowserWindow.open('http://royale.apache.org');"/>

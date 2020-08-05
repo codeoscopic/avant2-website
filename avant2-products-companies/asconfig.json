@@ -19,6 +19,16 @@
             "${royalelib}/js/libs/MXRoyaleJS.swc"
         ],
         "output": "target/javascript",
+        "define": [
+            {
+                "name": "BUILD::buildNumber",
+                "value": "'buildNumber'"
+            },
+            {
+                "name": "BUILD::buildVersion",
+                "value": "'project.version'"
+            }
+        ],
         "source-map": true
     },
     "additionalOptions": "-remove-circulars -js-output-optimization=skipAsCoercions",

@@ -30,6 +30,17 @@ package com.codeoscopic.avant.models
             complementaryProduct.name = complementariesProductLabel;
             complementaryProduct.icon = complementaryProductIcon;
         }
+
+        /**
+         * BUILD NUMBER
+         */
+        public static var buildNumber:String = BUILD::buildNumber;
+
+        /**
+         * Project Version
+         */
+        public static var projectVersion:String = BUILD::buildVersion;
+
         public static const LOADER_VIEW:String = "loader";
         public static const PRODUCTS_VIEW:String = "products";
         public static const COMPANIES_VIEW:String = "companies";
