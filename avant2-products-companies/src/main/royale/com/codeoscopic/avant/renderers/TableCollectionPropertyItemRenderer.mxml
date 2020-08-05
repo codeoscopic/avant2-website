@@ -37,12 +37,8 @@
                 if(!company.products && !company.hasComplementaries)
                     return false;
 
-                var array:Array = company.products.source;
-                var len:int = array.length;
-                for(var index:int = 0; index < len; index++)
+                for each(var product:Product in company.products)
                 {
-                    var product:Product = array[index];
-                    
                     if(labelField == "Complementarios")
                     {
                         icon.text = FontAwesome5IconType.CHART_NETWORK;

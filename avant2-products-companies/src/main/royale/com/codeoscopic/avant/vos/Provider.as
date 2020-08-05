@@ -21,6 +21,6 @@ package com.codeoscopic.avant.vos
         public var description:String;
         public var logo:String;
         public var color:String;
-        // public var products:ArrayListView;
+        public var product:Product;
     }
 }

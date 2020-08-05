@@ -97,13 +97,14 @@ package com.codeoscopic.avant.controllers
 				model.products = new ArrayList();
 				var product:Product;
 				var company:Company;
-				var provider:Provider;
 				var companies:Array;
+				var provider:Provider;
 				var providers:Array;
 				for (var i:int = 0; i < data.length; i++) {
-					// don't add this product if we don't have any company in it
+					// don't add this product if we don't have any company in it or at least a provider
 					if(!data[i].companies && !data[i].companieswip && !data[i].providers)
 						continue;
+
 					product = new Product();
 					product.id = data[i].id;
 					product.name = data[i].productname;
@@ -121,7 +122,7 @@ package com.codeoscopic.avant.controllers
 						company.logo = companies[j].companylogo.guid;
 						product.companies.addItem(company);
 					}
-					// now go over companies wip
+					// go over companies wip
 					companies = data[i].companieswip;
 					if(companies) {
 						for (j = 0; j < companies.length; j++) {
@@ -133,7 +134,7 @@ package com.codeoscopic.avant.controllers
 							product.companies.addItem(company);
 						}
 					}
-					// now go over providers
+					// go over providers
 					providers = data[i].providers;
 					if(providers) {
 						for (j = 0; j < providers.length; j++) {
@@ -143,11 +144,6 @@ package com.codeoscopic.avant.controllers
 							provider.logo = providers[j].providerlogo.guid;
 							provider.color = providers[j].providercolor;
 
-							// for now there can be only one provider
-							product.provider = provider;
-
-							addToLegendProviers(provider);
-							
 							for (var l:Object in providers[j].providerproducts)
 							{
 								if(providers[j].providerproducts[l].ID == product.id)
@@ -158,11 +154,14 @@ package com.codeoscopic.avant.controllers
 										company = new Company();
 										company.id = companies_o[k].ID;
 										company.name = companies_o[k].companyname;
-										// console.log(" - ",company.name,company.id);
 										company.logo = companies_o[k].companylogo.guid;
 										company.provider = provider;
 										product.companies.addItem(company);
 									}
+									// for now there can be only one provider
+									product.provider = provider;
+									provider.product = product;
+									addToLegendProviers(provider);
 									continue;
 								}
 							}
@@ -200,8 +199,9 @@ package com.codeoscopic.avant.controllers
 				}
 			}
 
-			if(!found)
+			if(!found) {
 				model.legendProviders.addItem(provider);
+			}
 		}
 
 		/**

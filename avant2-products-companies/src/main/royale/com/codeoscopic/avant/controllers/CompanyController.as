@@ -74,57 +74,87 @@ package com.codeoscopic.avant.controllers
 			sort.fields = [new SortField("name", true, false)];
 
 			model.companies = new ArrayList();
-			var company:Company;
 			var product:Product;
-			var provider:Provider;
 			var products:Array;
-			
-			for (var i:int = 0; i < data.length; i++) {
-				// don't add this company if we don't have any product in it
-				if(!data[i].products && !data[i].productswip && data[i].companyhascomplementaries != "1")
-					continue;
-				
-				company = new Company();
-				company.id = data[i].id;
-				company.name = data[i].companyname;
-				// console.log(company.name, company.id)
-				
-				company.logo = data[i].companylogo.guid;
-				company.hasComplementaries = data[i].companyhascomplementaries == 1 ? true : false;
-				
-				// add products
-				products = data[i].products;
-				company.products = new ArrayListView();
-				for (var j:int = 0; j < products.length; j++) {
-					product = new Product();
-					product.id = products[j].ID;
-					product.name = products[j].productname;
-					product.icon = products[j].producticon.guid;
-					// console.log(" - ", product.name, product.id)
-					
-					// has provider?
-					if(!(products[j].providers is Array))
+
+			var found:Boolean;
+			for each(var provider:Provider in model.legendProviders)
+			{
+				for each(var company:Company in provider.product.companies)
+				{
+					found = false;
+					for each(var c:Company in model.companies)
 					{
-						for (var l:Object in products[j].providers)
+						if(company.provider != null && c.id == company.id)
 						{
-							provider = new Provider();
-							provider.id = products[j].providers[l].ID;
-							provider.name = products[j].providers[l].providername;
-							provider.logo = products[j].providers[l].providerlogo.guid;
-							provider.color = products[j].providers[l].providercolor;
-							product.provider = provider;
-							provider = null;
-							continue; // for now there can be only one provider
+							found = true;
+							break;
 						}
 					}
-					// if(product.provider != null)
-					// 	console.log("  - ", product.provider.name, product.provider.id);
-
-					company.products.addItem(product);
+					if(!found){
+						if(company.products == null)
+							company.products = new ArrayListView();
+						company.products.addItem(provider.product);
+						model.companies.addItem(company);						
+					}
 				}
+			}
+			
+			for (var i:int = 0; i < data.length; i++)
+			{	
+				found = false;
+				for each(company in model.companies)
+				{
+					if(company.id == data[i].id)
+					{
+						found = true;
+						break;
+					}
+				}
+				
+				if(!found)
+				{
+					company = new Company();
+					company.id = data[i].id;
+					company.name = data[i].companyname;
+					company.logo = data[i].companylogo.guid;
+					company.hasComplementaries = data[i].companyhascomplementaries == 1 ? true : false;
+					// don't add this company if we don't have any product in it
+					// if(!data[i].products && !data[i].productswip && data[i].companyhascomplementaries != "1")//) && !hasProviders(data[i].products))
+					// 	continue;
+					model.companies.addItem(company);
+				}
+
+				// add products
+				products = data[i].products;
+				if(company.products == null)
+					company.products = new ArrayListView();
+				for (var j:int = 0; j < products.length; j++) {
+
+					found = false;
+					for each(var p:Product in company.products)
+					{
+						if(p.id == products[j].id)
+						{
+							found = true;
+							break;
+						}
+					}
+
+					if(!found)
+					{
+						product = new Product();
+						product.id = products[j].ID;
+						product.name = products[j].productname;
+						product.icon = products[j].producticon.guid;
+						
+						company.products.addItem(product);
+					}
+				}
+
 				// now go over products wip
 				products = data[i].productswip;
-				if(product)
+				if(products)
 				{
 					for (j = 0; j < products.length; j++) {
 						product = new Product();
@@ -144,15 +174,11 @@ package com.codeoscopic.avant.controllers
 					// increment counter to show in table
 					model.numComplementariesProduct++;
 				}
-
-				// now go over providers
-
-
+				
 				company.products.sort = sort;
 				company.products.refresh();
-
-				model.companies.addItem(company);
 			}
+
 
 			// now that we have all the fake complementaries add the column to the table
 			var column:TableColumn = new TableColumn();
