@@ -17,7 +17,7 @@
 
   <groupId>com.codeoscopic.avant</groupId>
   <artifactId>avant2-products-companies</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1</version>
   <packaging>swf</packaging>
 
   <name>Avant2: Products and Companies</name>
