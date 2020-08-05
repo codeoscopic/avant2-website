@@ -29,7 +29,7 @@
 
             private function initCompleteHandler():void
             {
-                buildVersionLabel.html = "v." + ProductCompaniesModel.projectVersion + '.' + ProductCompaniesModel.buildNumber;
+                buildVersionLabel.html = "v." + ProductCompaniesModel.projectVersion + (ProductCompaniesModel.buildNumber ? '.' + ProductCompaniesModel.buildNumber : '');
             }
         ]]>
     </fx:Script>
