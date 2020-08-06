@@ -13,7 +13,7 @@
     "compilerOptions": {
         "debug": true,
         "targets": [
-            "SWF",
+            // "SWF",
             "JSRoyale"
         ],
         "define": [
