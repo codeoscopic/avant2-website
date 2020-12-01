@@ -86,6 +86,7 @@
                     dataProvider="{product.companies}" labelField="name"
                     itemRenderer="com.codeoscopic.avant.renderers.CompanyDataContainerItemRenderer">
                 <j:beads>
+                    <j:Viewport clipContent="false"/>
                     <j:TileHorizontalLayout columnWidth="147" rowHeight="71"
                                         horizontalGap="16" verticalGap="16"/>
                     <js:BrowserResizeListener/>
