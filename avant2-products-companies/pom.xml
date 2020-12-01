@@ -161,6 +161,10 @@
             -keep-as3-metadata+=Inject,Dispatcher,EventHandler,PostConstruct,PreDestroy,ViewAdded,ViewRemoved,Bindable,Transient;
             -keep-code-with-metadata=Inject;
             -js-dynamic-access-unknown-members=true; <!-- to access JSON object graph subobjects --> 
+            -export-public-symbols=false
+            -prevent-rename-protected-symbols=false
+            -prevent-rename-internal-symbols=false
+            -prevent-rename-public-static-methods=false
           </additionalCompilerOptions>
           <defines>
               <property>
