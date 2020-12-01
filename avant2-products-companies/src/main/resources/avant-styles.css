@@ -128,7 +128,7 @@ j|Table {
   border-top: 1px dashed #d9d9d9;
 }
 
-.jewel.table .jewel.tableitem.complementaries {
+.jewel.table .jewel.tablecell.complementaries {
   background: #FFF9EA;
 }
 
