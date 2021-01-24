@@ -10,7 +10,11 @@
 
 -->
 
-Codeoscopic Avant 2 Website
+Codeoscopic Avant 2 Website (https://avant2.es/)
+
+# Running version
+
+https://avant2.es/productos-y-companias/
 
 # Avant2 - Products & Companies Widget
 
