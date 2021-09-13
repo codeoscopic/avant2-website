@@ -23,7 +23,7 @@
   <name>Avant2: Products and Companies</name>
 
   <properties>
-    <royale.framework.version>0.9.8-SNAPSHOT</royale.framework.version>
+    <royale.framework.version>0.9.9-SNAPSHOT</royale.framework.version>
     <compiler.output-dir-debug>${basedir}/target/javascript/bin/js-debug</compiler.output-dir-debug>
     <compiler.output-dir-release>${basedir}/target/javascript/bin/js-release</compiler.output-dir-release>
     <compiler.debug>true</compiler.debug>
