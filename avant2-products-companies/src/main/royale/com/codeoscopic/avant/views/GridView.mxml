@@ -117,7 +117,7 @@
         
         <j:Spacer height="30"/>
 
-        <j:HGroup width="450" itemsVerticalAlign="itemsTop" className="table-legend">
+        <j:HGroup width="360" itemsVerticalAlign="itemsTop" className="table-legend">
             <j:beads>
                 <j:Paddings padding="20"/>
             </j:beads>
