@@ -15,7 +15,7 @@
         "debug": true,
         "targets": ["JSRoyale"],
         "js-library-path": [
-            "../royale-html2pdf/target/royale-html2pdf-1.0-SNAPSHOT-js.swc",
+            "../royale-html2pdf/target/royale-html2pdf-1.0-js.swc",
             "${royalelib}/js/libs/MXRoyaleJS.swc"
         ],
         "output": "target/javascript",

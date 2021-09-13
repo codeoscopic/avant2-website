@@ -42,6 +42,6 @@
         //     "${royalelib}/js/libs/MXRoyaleJS.swc"
         // ],
         "source-map": true,
-        "output": "target/royale-html2pdf-1.0-SNAPSHOT-js.swc"
+        "output": "target/royale-html2pdf-1.0-js.swc"
     }
 }
