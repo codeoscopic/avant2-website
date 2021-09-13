@@ -298,7 +298,7 @@
     <dependency>
       <groupId>com.codeoscopic.avant</groupId>
       <artifactId>royale-html2pdf</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
       <type>swc</type>
       <classifier>js</classifier>
     </dependency>
