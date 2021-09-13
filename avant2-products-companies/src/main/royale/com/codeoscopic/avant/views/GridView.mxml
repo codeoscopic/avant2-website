@@ -117,7 +117,7 @@
         
         <j:Spacer height="30"/>
 
-        <j:HGroup width="360" itemsVerticalAlign="itemsTop" className="table-legend">
+        <j:HGroup width="450" itemsVerticalAlign="itemsTop" className="table-legend">
             <j:beads>
                 <j:Paddings padding="20"/>
             </j:beads>
@@ -156,6 +156,7 @@
                     dataProvider="{productCompaniesModel.legendProviders}">
                     <j:beads>
                         <j:Viewport clipContent="false"/>
+                        <j:VerticalLayout gap="3"/>
                     </j:beads>
                     <j:itemRenderer>
                         <fx:Component>
@@ -172,6 +173,7 @@
                                 </fx:Script>
                                 <j:beads>
                                     <js:ItemRendererDataBinding/>
+                                    <j:HorizontalLayout/>
                                 </j:beads>
                                 <j:HGroup gap="3" itemsVerticalAlign="itemsCenter">
                                     <js:FontAwesomeIcon
@@ -190,10 +192,7 @@
                         </fx:Component>
                     </j:itemRenderer>
                 </j:DataContainer>
-                
-                
             </j:VGroup>
-            
         </j:HGroup>   
     </j:GridCell>
 </j:Grid>
