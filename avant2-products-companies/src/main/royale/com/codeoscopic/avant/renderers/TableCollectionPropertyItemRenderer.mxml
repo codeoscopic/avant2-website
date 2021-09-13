@@ -18,6 +18,7 @@
         <![CDATA[
             import com.codeoscopic.avant.vos.Company;
             import com.codeoscopic.avant.vos.Product;
+            import org.apache.royale.core.StyledUIBase;
 
             // import com.codeoscopic.avant.models.ProductCompaniesModel;
 
@@ -45,7 +46,7 @@
                         icon.removeClass("emphasized-normal");
                         icon.removeClass("secondary-normal");
                         icon.addClass("primary-dark");
-                        addClass("complementaries");
+                        (parent as StyledUIBase).addClass("complementaries");
                     }
 
                     if(product.name == labelField)

@@ -11,6 +11,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 package com.codeoscopic.avant.controllers
 {
+	import com.codeoscopic.avant.events.ProductCompaniesEvent;
 	import com.codeoscopic.avant.models.ProductCompaniesModel;
 	import com.codeoscopic.avant.renderers.TableImageLogoItemRenderer;
 	import com.codeoscopic.avant.services.ComplementaryDelegate;
@@ -28,6 +29,7 @@ package com.codeoscopic.avant.controllers
 	import org.apache.royale.collections.SortField;
 	import org.apache.royale.core.ClassFactory;
 	import org.apache.royale.crux.utils.services.ServiceHelper;
+	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.jewel.supportClasses.table.TableColumn;
 	
 	/**
@@ -43,6 +45,9 @@ package com.codeoscopic.avant.controllers
 		 */ 
 		[Inject]
 		public var serviceHelper:ServiceHelper;
+		
+		[Dispatcher]
+        public var dispatcher:IEventDispatcher;
 		
         /**
 		 *  Common model
@@ -180,9 +185,11 @@ package com.codeoscopic.avant.controllers
 
 				model.sortedProducts = alv;
 
+				model.selectedContent = "products";//ProductCompaniesModel.PRODUCTS_VIEW;
+				
 				createGridColumns();
 
-				model.selectedContent = "products";//ProductCompaniesModel.PRODUCTS_VIEW;
+				dispatcher.dispatchEvent(new ProductCompaniesEvent(ProductCompaniesEvent.LOAD_COMPANIES));
 			}
 		}
 

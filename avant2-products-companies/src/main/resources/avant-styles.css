@@ -8,6 +8,7 @@
 .jewel.application {
   background: transparent;
   font-family: "Hind Siliguri", sans-serif;
+  font-size: 85%;
 }
 
 .jewel.cell {
@@ -128,7 +129,7 @@ j|Table {
   border-top: 1px dashed #d9d9d9;
 }
 
-.jewel.table .jewel.tableitem.complementaries {
+.jewel.table .jewel.tablecell.complementaries {
   background: #FFF9EA;
 }
 

@@ -17,13 +17,13 @@
 
   <groupId>com.codeoscopic.avant</groupId>
   <artifactId>avant2-products-companies</artifactId>
-  <version>1.1</version>
+  <version>1.2-SNAPSHOT</version>
   <packaging>swf</packaging>
 
   <name>Avant2: Products and Companies</name>
 
   <properties>
-    <royale.framework.version>0.9.8-SNAPSHOT</royale.framework.version>
+    <royale.framework.version>0.9.9-SNAPSHOT</royale.framework.version>
     <compiler.output-dir-debug>${basedir}/target/javascript/bin/js-debug</compiler.output-dir-debug>
     <compiler.output-dir-release>${basedir}/target/javascript/bin/js-release</compiler.output-dir-release>
     <compiler.debug>true</compiler.debug>
@@ -133,7 +133,7 @@
                 <artifactItem>
                   <groupId>com.codeoscopic.avant</groupId>
                   <artifactId>royale-html2pdf</artifactId>
-                  <version>1.0-SNAPSHOT</version>
+                  <version>1.0</version>
                   <type>swc</type>
                   <classifier>js</classifier>
                   <outputDirectory>${project.build.directory}/javascript/bin/js-release</outputDirectory>
@@ -161,6 +161,10 @@
             -keep-as3-metadata+=Inject,Dispatcher,EventHandler,PostConstruct,PreDestroy,ViewAdded,ViewRemoved,Bindable,Transient;
             -keep-code-with-metadata=Inject;
             -js-dynamic-access-unknown-members=true; <!-- to access JSON object graph subobjects --> 
+            -export-public-symbols=false
+            -prevent-rename-protected-symbols=false
+            -prevent-rename-internal-symbols=false
+            -prevent-rename-public-static-methods=false
           </additionalCompilerOptions>
           <defines>
               <property>
@@ -294,7 +298,7 @@
     <dependency>
       <groupId>com.codeoscopic.avant</groupId>
       <artifactId>royale-html2pdf</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
       <type>swc</type>
       <classifier>js</classifier>
     </dependency>

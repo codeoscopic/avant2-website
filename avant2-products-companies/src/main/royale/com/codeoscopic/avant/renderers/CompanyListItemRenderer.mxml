@@ -88,6 +88,7 @@
                     dataProvider="{company.products}" labelField="name"
                     itemRenderer="com.codeoscopic.avant.renderers.ProductDataContainerItemRenderer">
                 <j:beads>
+                    <j:Viewport clipContent="false"/>
                     <j:TileHorizontalLayout columnWidth="92" rowHeight="120"
                                         horizontalGap="16" verticalGap="16"/>
                     <js:BrowserResizeListener/>
@@ -97,7 +98,7 @@
                 <js:FontAwesomeIcon text="{FontAwesome5IconType.PARKING_CIRCLE}"
                     faStyle="{FontAwesomeIcon.REGULAR}" relativeSize="{FontAwesomeIcon.SIZE_X2}"
                     style="color: {company.provider.color};"/>
-                <j:Label text="Ofredido por"/>
+                <j:Label text="Ofrecido por"/>
                 <j:Image width="150" height="60" src="{company.provider.logo}">
                     <j:beads>
                         <js:ErrorImage emptyIsError="true"/>
