@@ -64,7 +64,7 @@ package com.codeoscopic.avant.controllers
 			if(model.companies == null) {
 				var data:Object = JSON.parse(event.result as String);
 				processCompaniesData(data);
-				model.selectedContent = "companies";//ProductCompaniesModel.COMPANIES_VIEW;
+				model.selectedContent = "gridview";//"companies";//ProductCompaniesModel.COMPANIES_VIEW;
 			}
 		}
 
