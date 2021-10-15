@@ -36,7 +36,7 @@
             <path-element>../../../../../../frameworks/js/libs/BasicJS.swc</path-element>
             <path-element>../../../../../../frameworks/js/libs/IconsJS.swc</path-element>
             <path-element>../../../../../../frameworks/js/libs/CruxJS.swc</path-element>
-            <path-element>../../../../../../frameworks/js/libs/MXRoyaleJS.swc</path-element>
+            <path-element>../../../../../../frameworks/js/libs/MXRoyaleBaseJS.swc</path-element>
         </js-library-path>
         <!--<library-path append="true">
             <path-element>../../../../../../frameworks/libs/Basic.swc</path-element>
@@ -45,9 +45,9 @@
         <theme>
             <filename>../../../../../../frameworks/libs/JewelTheme.swc</filename>
         </theme>
-        <exclude-defaults-css-files>
+        <!-- <exclude-defaults-css-files> -->
             <!--<filename>MXRoyale.swc:defaults.css</filename>-->
-            <filename>MXRoyaleJS.swc:defaults.css</filename>
-        </exclude-defaults-css-files>
+            <!-- <filename>MXRoyaleJS.swc:defaults.css</filename> -->
+        <!-- </exclude-defaults-css-files> -->
     </compiler>
 </royale-config>
