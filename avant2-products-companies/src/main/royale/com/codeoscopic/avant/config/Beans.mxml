@@ -20,14 +20,14 @@
 
 	<controller:ProductController/>
 	<services:ProductDelegate id="productDelegate"/>
-	<mx:HTTPService id="productService" url="https://avant2.es/wp-json/wp/v2/product/?per_page=35"/>
+	<mx:HTTPService id="productService" url="/wp-json/wp/v2/product/?per_page=35"/>
 	
 	<services:ComplementaryDelegate id="complementaryDelegate"/>
-	<mx:HTTPService id="complementaryService" url="https://avant2.es/wp-json/wp/v2/complementary/?per_page=20"/>
+	<mx:HTTPService id="complementaryService" url="/wp-json/wp/v2/complementary/?per_page=20"/>
 	
 	<controller:CompanyController/>
 	<services:CompanyDelegate id="companyDelegate"/>
-	<mx:HTTPService id="companyService" url="https://avant2.es/wp-json/wp/v2/company/?per_page=75"/>
+	<mx:HTTPService id="companyService" url="/wp-json/wp/v2/company/?per_page=75"/>
 	
 
 </crux:BeanProvider>
